@@ -12,6 +12,10 @@ dist
 dist-ssr
 *.local
 
+# Build artifacts
+scripts/compareEncrypt/bin
+scripts/compareEncrypt/obj
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
