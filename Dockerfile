@@ -13,18 +13,17 @@ COPY . .
 
 RUN yarn build
 
-# Serve dist/ over HTTPS (port 443)
+# Serve dist/ on HTTP port 80 (EasyPanel terminates HTTPS at the proxy).
 FROM nginx:alpine
 
-RUN apk add --no-cache openssl jq
+RUN apk add --no-cache jq
 
 COPY nginx.conf /etc/nginx/conf.d/default.conf
-COPY docker/40-generate-ssl.sh /docker-entrypoint.d/40-generate-ssl.sh
 COPY docker/50-runtime-env.sh /docker-entrypoint.d/50-runtime-env.sh
-RUN chmod +x /docker-entrypoint.d/40-generate-ssl.sh /docker-entrypoint.d/50-runtime-env.sh
+RUN chmod +x /docker-entrypoint.d/50-runtime-env.sh
 
 COPY --from=build /app/dist /usr/share/nginx/html
 
-EXPOSE 80 443
+EXPOSE 80
 
 CMD ["nginx", "-g", "daemon off;"]
