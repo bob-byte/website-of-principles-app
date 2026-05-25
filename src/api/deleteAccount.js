@@ -36,8 +36,8 @@ export function getDeletionMessageKey(error) {
 
 function hasClientEncryptionKeys() {
   return Boolean(
-    import.meta.env.VITE_PASSWORD_ENCRYPTION_FIRST_KEY
-    && import.meta.env.VITE_PASSWORD_ENCRYPTION_SECOND_KEY,
+    import.meta.env.FIRST_KEY_OF_PASSWORD_ENCRYPTION
+    && import.meta.env.SECOND_KEY_OF_PASSWORD_ENCRYPTION,
   );
 }
 
@@ -111,20 +111,20 @@ function assertEncryptionKeys(firstKey, secondKey) {
 
   if (!validKeyLengths.has(keyBytes.length)) {
     throw new Error(
-      "Encryption key is misconfigured. Wrap VITE_PASSWORD_ENCRYPTION_FIRST_KEY in double quotes if it contains #.",
+      "Encryption key is misconfigured. Wrap FIRST_KEY_OF_PASSWORD_ENCRYPTION in double quotes if it contains #.",
     );
   }
 
   if (ivBytes.length !== 16) {
     throw new Error(
-      "Encryption IV is misconfigured. VITE_PASSWORD_ENCRYPTION_SECOND_KEY must be 16 bytes.",
+      "Encryption IV is misconfigured. SECOND_KEY_OF_PASSWORD_ENCRYPTION must be 16 bytes.",
     );
   }
 }
 
 async function getEncryptionKeys() {
-  const firstKey = trimEnvValue(import.meta.env.VITE_PASSWORD_ENCRYPTION_FIRST_KEY);
-  const secondKey = trimEnvValue(import.meta.env.VITE_PASSWORD_ENCRYPTION_SECOND_KEY);
+  const firstKey = trimEnvValue(import.meta.env.FIRST_KEY_OF_PASSWORD_ENCRYPTION);
+  const secondKey = trimEnvValue(import.meta.env.SECOND_KEY_OF_PASSWORD_ENCRYPTION);
 
   if (!firstKey || !secondKey) {
     throw new Error("Account deletion is not configured. Contact support at app@principles.top.");

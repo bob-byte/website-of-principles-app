@@ -134,8 +134,8 @@ sequenceDiagram
 | Змінна | Опис |
 |--------|------|
 | `VITE_API_PROXY_TARGET` | URL API (production або localhost:6001) |
-| `VITE_PASSWORD_ENCRYPTION_FIRST_KEY` | ключ AES (32 байт UTF-8) |
-| `VITE_PASSWORD_ENCRYPTION_SECOND_KEY` | IV (16 байт) |
+| `FIRST_KEY_OF_PASSWORD_ENCRYPTION` | ключ AES (32 байт UTF-8) |
+| `SECOND_KEY_OF_PASSWORD_ENCRYPTION` | IV (16 байт) |
 | `VITE_SITE_URL` | URL сайту для SEO |
 
 **Production:** ключі з `front/Principles/appsettings.json`.  
