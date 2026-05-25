@@ -27,7 +27,7 @@ function readStoredTheme() {
   } catch {
     /* ignore */
   }
-  return "dark-orange";
+  return "light-blue";
 }
 
 function getTranslationByKey(object, key) {
