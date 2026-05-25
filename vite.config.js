@@ -9,6 +9,8 @@ export default defineConfig(({ mode }) => {
   return {
     plugins: [react(), deleteAccountPlugin()],
     server: {
+      port: 5173,
+      strictPort: false,
       proxy: {
         "/api": {
           target:
@@ -19,6 +21,8 @@ export default defineConfig(({ mode }) => {
       },
     },
     preview: {
+      port: 4173,
+      strictPort: false,
       proxy: {
         "/api": {
           target:
