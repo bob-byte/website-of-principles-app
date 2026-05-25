@@ -158,15 +158,26 @@ yarn build   # папка dist/
 
 ### Docker (EasyPanel)
 
-У сервісі виберіть **Dockerfile** (не Buildpacks), порт контейнера **443** (HTTPS).
+**Build → тип:** Dockerfile (не Buildpacks / Nixpacks).
 
-**Змінні середовища** задайте лише в EasyPanel/VPS (не в репозиторії й не в образі при збірці): `FIRST_KEY_OF_PASSWORD_ENCRYPTION`, `SECOND_KEY_OF_PASSWORD_ENCRYPTION`, за потреби `VITE_SITE_URL`, `VITE_API_BASE_URL`. При старті контейнера вони потрапляють у `/principles-env.js` (див. `docker/50-runtime-env.sh`). Локально — `.env.local` (див. `.env.example`).
+| Поле в EasyPanel | Значення |
+|------------------|----------|
+| **Dockerfile file** (шлях до файлу) | `Dockerfile` |
+| **Root path** / базова папка репо | `.` або порожньо (корінь репозиторію) |
 
-TLS: змонтуйте сертифікат у контейнер як `/etc/nginx/ssl/fullchain.pem` і `/etc/nginx/ssl/privkey.pem` (наприклад Let's Encrypt з EasyPanel). Якщо файлів немає, при старті створюється self-signed (лише для тесту). HTTP (порт 80) перенаправляє на HTTPS.
+Помилка `failed to read dockerfile: open code: no such file or directory` означає, що в полі Dockerfile вказано **папку** (`code/`, `/`, `.`) замість **файлу** `Dockerfile`. У логах має бути `-f .../code/Dockerfile`, а не `-f .../code/`.
+
+**Domains & Proxy → port:** `80` (HTTP у контейнері; HTTPS надає EasyPanel для `https://principles.top`).
+
+**Environment** (runtime, не build-args): `FIRST_KEY_OF_PASSWORD_ENCRYPTION`, `SECOND_KEY_OF_PASSWORD_ENCRYPTION`, за потреби `VITE_SITE_URL`, `VITE_API_BASE_URL`. При старті контейнера вони потрапляють у `/principles-env.js` (див. `docker/50-runtime-env.sh`). Локально — `.env.local` (див. `.env.example`).
+
+`VITE_API_BASE_URL` залиште **порожнім**, якщо в EasyPanel налаштовано проксі `/api` → principles-server на тому ж домені. Не додавайте `/api` у кінець URL сервера.
+
+Build-args у EasyPanel для цього образу **не потрібні** (секрети не вшиваються при збірці).
 
 ```bash
 docker build -t principles-website .
-docker run -p 8443:443 \
+docker run -p 8080:80 \
   -e FIRST_KEY_OF_PASSWORD_ENCRYPTION="..." \
   -e SECOND_KEY_OF_PASSWORD_ENCRYPTION="..." \
   principles-website
