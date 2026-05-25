@@ -156,9 +156,25 @@ sequenceDiagram
 yarn build   # папка dist/
 ```
 
+### Docker (EasyPanel)
+
+У сервісі виберіть **Dockerfile** (не Buildpacks), порт контейнера **443** (HTTPS).
+
+**Змінні середовища** задайте лише в EasyPanel/VPS (не в репозиторії й не в образі при збірці): `FIRST_KEY_OF_PASSWORD_ENCRYPTION`, `SECOND_KEY_OF_PASSWORD_ENCRYPTION`, за потреби `VITE_SITE_URL`, `VITE_API_BASE_URL`. При старті контейнера вони потрапляють у `/principles-env.js` (див. `docker/50-runtime-env.sh`). Локально — `.env.local` (див. `.env.example`).
+
+TLS: змонтуйте сертифікат у контейнер як `/etc/nginx/ssl/fullchain.pem` і `/etc/nginx/ssl/privkey.pem` (наприклад Let's Encrypt з EasyPanel). Якщо файлів немає, при старті створюється self-signed (лише для тесту). HTTP (порт 80) перенаправляє на HTTPS.
+
+```bash
+docker build -t principles-website .
+docker run -p 8443:443 \
+  -e FIRST_KEY_OF_PASSWORD_ENCRYPTION="..." \
+  -e SECOND_KEY_OF_PASSWORD_ENCRYPTION="..." \
+  principles-website
+```
+
 На хостингу:
 
-1. Роздавати `dist/` як статику.
+1. Роздавати `dist/` як статику (або образ з `Dockerfile` + `nginx.conf`).
 2. SPA fallback: усі шляхи → `index.html`.
 3. Проксі `/api` на principles-server (або `VITE_API_BASE_URL` при збірці).
 
