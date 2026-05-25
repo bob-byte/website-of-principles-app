@@ -1,6 +1,7 @@
 import { encryptPassword } from "../utils/passwordEncryption";
+import { env } from "../config/runtimeEnv";
 
-const API_BASE = (import.meta.env.VITE_API_BASE_URL || "").replace(/\/$/, "");
+const API_BASE = env("VITE_API_BASE_URL").replace(/\/$/, "");
 
 export const DELETION_ERRORS = {
   EMAIL_NOT_FOUND: "EMAIL_NOT_FOUND",
@@ -36,8 +37,8 @@ export function getDeletionMessageKey(error) {
 
 function hasClientEncryptionKeys() {
   return Boolean(
-    import.meta.env.FIRST_KEY_OF_PASSWORD_ENCRYPTION
-    && import.meta.env.SECOND_KEY_OF_PASSWORD_ENCRYPTION,
+    env("FIRST_KEY_OF_PASSWORD_ENCRYPTION")
+    && env("SECOND_KEY_OF_PASSWORD_ENCRYPTION"),
   );
 }
 
@@ -123,8 +124,8 @@ function assertEncryptionKeys(firstKey, secondKey) {
 }
 
 async function getEncryptionKeys() {
-  const firstKey = trimEnvValue(import.meta.env.FIRST_KEY_OF_PASSWORD_ENCRYPTION);
-  const secondKey = trimEnvValue(import.meta.env.SECOND_KEY_OF_PASSWORD_ENCRYPTION);
+  const firstKey = trimEnvValue(env("FIRST_KEY_OF_PASSWORD_ENCRYPTION"));
+  const secondKey = trimEnvValue(env("SECOND_KEY_OF_PASSWORD_ENCRYPTION"));
 
   if (!firstKey || !secondKey) {
     throw new Error("Account deletion is not configured. Contact support at app@principles.top.");
@@ -160,7 +161,7 @@ function normalizeUserCode(code) {
 }
 
 function isLocalApiBase() {
-  const base = API_BASE || (import.meta.env.VITE_API_PROXY_TARGET || "");
+  const base = API_BASE || env("VITE_API_PROXY_TARGET");
   return /localhost|127\.0\.0\.1/i.test(base);
 }
 

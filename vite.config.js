@@ -7,6 +7,7 @@ export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), "");
 
   return {
+    envPrefix: ["VITE_", "FIRST_KEY_OF_", "SECOND_KEY_OF_"],
     plugins: [react(), deleteAccountPlugin()],
     server: {
       port: 5173,
