@@ -1,6 +1,7 @@
 import { useEffect } from "react";
+import { env } from "../config/runtimeEnv";
 
-const SITE_URL = (import.meta.env.VITE_SITE_URL || "https://principles.top").replace(/\/$/, "");
+const SITE_URL = (env("VITE_SITE_URL") || "https://principles.top").replace(/\/$/, "");
 
 function upsertMeta(attribute, name, content) {
   if (!content) {

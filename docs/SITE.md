@@ -134,8 +134,8 @@ sequenceDiagram
 | Змінна | Опис |
 |--------|------|
 | `VITE_API_PROXY_TARGET` | URL API (production або localhost:6001) |
-| `VITE_PASSWORD_ENCRYPTION_FIRST_KEY` | ключ AES (32 байт UTF-8) |
-| `VITE_PASSWORD_ENCRYPTION_SECOND_KEY` | IV (16 байт) |
+| `FIRST_KEY_OF_PASSWORD_ENCRYPTION` | ключ AES (32 байт UTF-8) |
+| `SECOND_KEY_OF_PASSWORD_ENCRYPTION` | IV (16 байт) |
 | `VITE_SITE_URL` | URL сайту для SEO |
 
 **Production:** ключі з `front/Principles/appsettings.json`.  
@@ -156,9 +156,36 @@ sequenceDiagram
 yarn build   # папка dist/
 ```
 
+### Docker (EasyPanel)
+
+**Build → тип:** Dockerfile (не Buildpacks / Nixpacks).
+
+| Поле в EasyPanel | Значення |
+|------------------|----------|
+| **Dockerfile file** (шлях до файлу) | `Dockerfile` |
+| **Root path** / базова папка репо | `.` або порожньо (корінь репозиторію) |
+
+Помилка `failed to read dockerfile: open code: no such file or directory` означає, що в полі Dockerfile вказано **папку** (`code/`, `/`, `.`) замість **файлу** `Dockerfile`. У логах має бути `-f .../code/Dockerfile`, а не `-f .../code/`.
+
+**Domains & Proxy → port:** `80` (HTTP у контейнері; HTTPS надає EasyPanel для `https://principles.top`).
+
+**Environment** (runtime, не build-args): `FIRST_KEY_OF_PASSWORD_ENCRYPTION`, `SECOND_KEY_OF_PASSWORD_ENCRYPTION`, за потреби `VITE_SITE_URL`, `VITE_API_BASE_URL`. При старті контейнера вони потрапляють у `/principles-env.js` (див. `docker/50-runtime-env.sh`). Локально — `.env.local` (див. `.env.example`).
+
+`VITE_API_BASE_URL` залиште **порожнім**, якщо в EasyPanel налаштовано проксі `/api` → principles-server на тому ж домені. Не додавайте `/api` у кінець URL сервера.
+
+Build-args у EasyPanel для цього образу **не потрібні** (секрети не вшиваються при збірці).
+
+```bash
+docker build -t principles-website .
+docker run -p 8080:80 \
+  -e FIRST_KEY_OF_PASSWORD_ENCRYPTION="..." \
+  -e SECOND_KEY_OF_PASSWORD_ENCRYPTION="..." \
+  principles-website
+```
+
 На хостингу:
 
-1. Роздавати `dist/` як статику.
+1. Роздавати `dist/` як статику (або образ з `Dockerfile` + `nginx.conf`).
 2. SPA fallback: усі шляхи → `index.html`.
 3. Проксі `/api` на principles-server (або `VITE_API_BASE_URL` при збірці).
 

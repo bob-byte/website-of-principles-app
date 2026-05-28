@@ -33,23 +33,23 @@ function assertEncryptionKeys(firstKey, secondKey) {
 
   if (!validKeyLengths.has(keyBytes.length)) {
     throw new Error(
-      "PASSWORD_ENCRYPTION_FIRST_KEY has invalid length. Wrap it in double quotes in .env.local if it contains #.",
+      "FIRST_KEY_OF_PASSWORD_ENCRYPTION has invalid length. Wrap it in double quotes in .env.local if it contains #.",
     );
   }
 
   if (ivBytes.length !== 16) {
     throw new Error(
-      "PASSWORD_ENCRYPTION_SECOND_KEY must be 16 bytes. Wrap it in double quotes in .env.local if needed.",
+      "SECOND_KEY_OF_PASSWORD_ENCRYPTION must be 16 bytes. Wrap it in double quotes in .env.local if needed.",
     );
   }
 }
 
 function getEnvKeys(env) {
   const firstKey = trimEnvValue(
-    env.PASSWORD_ENCRYPTION_FIRST_KEY || env.VITE_PASSWORD_ENCRYPTION_FIRST_KEY,
+    env.FIRST_KEY_OF_PASSWORD_ENCRYPTION || env.FIRST_KEY_OF_PASSWORD_ENCRYPTION,
   );
   const secondKey = trimEnvValue(
-    env.PASSWORD_ENCRYPTION_SECOND_KEY || env.VITE_PASSWORD_ENCRYPTION_SECOND_KEY,
+    env.SECOND_KEY_OF_PASSWORD_ENCRYPTION || env.SECOND_KEY_OF_PASSWORD_ENCRYPTION,
   );
 
   return { firstKey, secondKey };
