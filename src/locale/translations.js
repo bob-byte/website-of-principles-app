@@ -24,31 +24,165 @@ export const translations = {
       learnMore: "Learn More",
       videoTip: "See how habits and reminders work in this short intro on our YouTube channel",
       iframeTitle: "Principles intro",
+      playVideo: "Play video",
     },
     benefits: {
       title: "Main benefits",
-      subtitle: "Everything you need to stay consistent with your habits",
-      cardKind: "benefit",
+      subtitle: "Benefits that help you use Principles",
+      uniqueLabel: "Why it’s unique:",
       items: [
-        "A simple system to build discipline through repeatable habits.",
-        "Track streaks and progress so every small step stays visible.",
-        "Short daily actions that fit a busy day without overload.",
-        "Gentle structure when you are adding a new habit or breaking an old pattern.",
-        "Reminders that nudge you at the right time so habits do not slip away.",
-        "Bite-sized guidance instead of long courses you never finish.",
-        "Flexible for any lifestyle — health, focus, routines, or personal goals.",
-        "Supportive feedback loops that help you keep going after a miss.",
+        {
+          emoji: "🎯",
+          title: "Goal orientation",
+          description:
+            "Principles is not just a habit tracker. Every habit has a concrete goal it helps achieve. That turns a chaotic “I just want to be better” into a structured path toward a personal goal.",
+          unique:
+            "most competitors only track habits — not the link between a habit and the result.",
+        },
+        {
+          emoji: "🤖",
+          title: "Personalization through AI",
+          description:
+            "A GPT-based assistant knows your mission, motto, gender, and goals so it can recommend the habits that help solve your real problems.",
+          unique:
+            "other apps just give template habit lists. Principles adapts recommendations to you personally.",
+        },
+        {
+          emoji: "🧩",
+          title: "Systems principle",
+          description:
+            "The app helps you build not isolated habits, but a complete development system. Everything connects: Goal → Habits → Results.",
+          unique: "you see how small actions form big changes in life.",
+        },
+        {
+          emoji: "🌱",
+          title: "Philosophy of continuous improvement",
+          description:
+            "The app is built not for short-term “challenges”, but for long-term growth. It supports you for years — from chaos to system, from system to strength.",
+        },
+        {
+          emoji: "💪",
+          title: "Ukrainian product with potential",
+          description:
+            "Principles was created by a Ukrainian team that combined the depth of development philosophy with modern technology. A product about consciousness, willpower, and inner order.",
+        },
+        {
+          emoji: "💭",
+          title: "Self-reflection and awareness",
+          description:
+            "Every habit includes a self-reflection question that helps you understand the inner reasons for resistance and keep mental clarity.",
+        },
+        {
+          emoji: "📈",
+          title: "Growth through progress, not perfectionism",
+          description:
+            "The progress algorithm accounts for habit difficulty and frequency, forming a realistic path without guilt for missed days.",
+          unique:
+            "most apps demotivate you when you miss something. Principles supports you and helps you recover.",
+        },
+        {
+          emoji: "💬",
+          title: "Self-development assistant",
+          description:
+            "In the built-in chat you can ask any questions about yourself, goals, and motivation — and get smart advice from AI that already knows your habits, mission, and priorities.",
+          unique: "this is not just a bot — it’s a mentor that understands the context of your life.",
+        },
+      ],
+    },
+    transformations: {
+      title: "Transformations",
+      subtitle: "What changes when habits meet a clear system",
+      items: [
+        {
+          title: "Turns goals into a clear plan",
+          description: 'Convert "want" into goals + next steps.',
+        },
+        {
+          title: "Builds consistency via habits",
+          description: "Small daily actions compound into big change.",
+        },
+        {
+          title: "Shows what’s lagging behind",
+          description: "Track life areas and fix weak spots early.",
+        },
+        {
+          title: "Reduces overwhelm",
+          description: "Fewer decisions, clearer priorities, more focus.",
+        },
+        {
+          title: "Builds discipline gently",
+          description: "Improve the system, not self-blame.",
+        },
+        {
+          title: "Makes progress visible",
+          description: "Tracking turns effort into motivation.",
+        },
+        {
+          title: "Helps you course-correct fast",
+          description: "Regular reviews keep you on track.",
+        },
+        {
+          title: "Aligns actions with values",
+          description: "Daily habits match the person you want to be.",
+        },
+        {
+          title: "Learn English with a system",
+          description: "Daily micro-habits + weekly review → steady progress.",
+        },
+        {
+          title: "Build a sleep routine",
+          description: "Fixed wake/bed times + evening ritual → stable energy.",
+        },
+        {
+          title: "Grow your career",
+          description: "Skill ladder + weekly shipped artifacts → faster leveling up.",
+        },
+        {
+          title: "Get in shape",
+          description: "Simple training plan + steps/protein baseline → visible results.",
+        },
+        {
+          title: "Beat procrastination",
+          description: "Deep-work blocks + fewer distractions → more output.",
+        },
+        {
+          title: "Control finances",
+          description: "Weekly money review + auto-saving → predictable growth.",
+        },
+        {
+          title: "Eat healthier by defaults",
+          description: "Meal templates + prep → less junk, more energy.",
+        },
+        {
+          title: "Stay calm under stress",
+          description: "Short daily regulation practice → fewer emotional spikes.",
+        },
+        {
+          title: "Strengthen relationships",
+          description: "Scheduled touchpoints → deeper connection over time.",
+        },
       ],
     },
     steps: {
       title: "How it works?",
       subtitle: "Pick a habit, repeat daily, review weekly",
-      cardTitle: "Small start",
       items: [
-        "Choose one habit you want to keep or a new one you want to build.",
-        "Get a small daily prompt and reminders so you remember to act.",
-        "Review the week, adjust difficulty, and stack the next habit.",
-        "Repeat until your routines feel natural and automatic.",
+        {
+          title: "Choose a habit",
+          text: "Choose one habit you want to keep or a new one you want to build.",
+        },
+        {
+          title: "Act every day",
+          text: "Get a small daily prompt and reminders so you remember to act.",
+        },
+        {
+          title: "Review the week",
+          text: "Review the week, adjust difficulty, and stack the next habit.",
+        },
+        {
+          title: "Make it automatic",
+          text: "Repeat until your routines feel natural and automatic.",
+        },
       ],
     },
     reviews: {
@@ -134,31 +268,165 @@ export const translations = {
       learnMore: "Дізнатися більше",
       videoTip: "Подивись короткий огляд: як працюють звички та нагадування — на нашому YouTube-каналі",
       iframeTitle: "Вступ до Principles",
+      playVideo: "Відтворити відео",
     },
     benefits: {
       title: "Головні переваги",
-      subtitle: "Усе, щоб тримати ритм звичок і не зриватися",
-      cardKind: "перевага",
+      subtitle: "Переваги, які допомагають користуватися Principles",
+      uniqueLabel: "Чому це унікально:",
       items: [
-        "Проста система дисципліни через повторювані звички.",
-        "Серії та прогрес на виду — кожен маленький крок має значення.",
-        "Короткі щоденні дії, які вміщаються навіть у щільний день.",
-        "М'яка структура, коли додаєш нову звичку чи змінюєш стару.",
-        "Нагадування в потрібний час, щоб звичка не «зникала» з голови.",
-        "Короткі підказки замість довгих курсів, які не доходять до кінця.",
-        "Гнучко під здоров'я, фокус, рутину або будь-яку особисту мету.",
-        "Підтримка після пропуску — щоб легше повернутися до звички.",
+        {
+          emoji: "🎯",
+          title: "Цільова орієнтованість",
+          description:
+            "Принципи — це не просто трекер звичок. Кожна звичка має конкретну ціль, яку вона допомагає досягти. Це перетворює хаотичне «я просто хочу бути кращим» у структурований шлях до особистої мети.",
+          unique:
+            "більшість конкурентів фіксують лише звички, а не звʼязок між звичкою та результатом.",
+        },
+        {
+          emoji: "🤖",
+          title: "Персоналізація через ШІ",
+          description:
+            "Асистент на основі GPT знає твою місію, девіз, стать і цілі, щоб рекомендувати саме ті звички, які допоможуть вирішити твої реальні проблеми.",
+          unique:
+            "інші застосунки просто дають списки шаблонних звичок. Принципи — єдиний, хто адаптує рекомендації під тебе особисто.",
+        },
+        {
+          emoji: "🧩",
+          title: "Принцип системності",
+          description:
+            "Додаток допомагає будувати не окремі звички, а цілісну систему розвитку. Усе обʼєднано в логіку: Мета → Звички → Результати.",
+          unique: "користувач бачить, як дрібні дії формують великі зміни у житті.",
+        },
+        {
+          emoji: "🌱",
+          title: "Філософія постійного вдосконалення",
+          description:
+            "Додаток створено не для короткострокових «викликів», а для довгострокового зростання. Він підтримує користувача роками, допомагаючи йти від хаосу — до системи, від системи — до сили.",
+        },
+        {
+          emoji: "💪",
+          title: "Український продукт із потенціалом",
+          description:
+            "Принципи створено українською командою, яка поєднала глибину філософії розвитку з сучасними технологіями. Це продукт про свідомість, силу волі та внутрішній порядок.",
+        },
+        {
+          emoji: "💭",
+          title: "Саморефлексія та усвідомленість",
+          description:
+            "Кожна звичка містить запитання для саморефлексії, яке допомагає зрозуміти внутрішні причини опору та підтримувати ментальну ясність.",
+        },
+        {
+          emoji: "📈",
+          title: "Розвиток через прогрес, а не перфекціонізм",
+          description:
+            "Алгоритм прогресу враховує складність звички та частоту, формуючи реалістичний шлях без почуття провини за пропуски.",
+          unique:
+            "більшість додатків демотивують користувача, коли він щось пропускає. Принципи навпаки підтримують і допомагають відновитися.",
+        },
+        {
+          emoji: "💬",
+          title: "Асистент саморозвитку",
+          description:
+            "У вбудованому чаті користувач може ставити будь-які питання про себе, цілі, мотивацію — і отримувати інтелектуальні поради від ШІ, який уже знає його звички, місію та пріоритети.",
+          unique: "це не просто бот — це ментор, який розуміє контекст твого життя.",
+        },
+      ],
+    },
+    transformations: {
+      title: "Трансформації",
+      subtitle: "Що змінюється, коли звички стають системою",
+      items: [
+        {
+          title: "Перетворює бажання на план",
+          description: "З «хочу» — у цілі й наступні кроки.",
+        },
+        {
+          title: "Будує стабільність через звички",
+          description: "Малі щоденні дії складаються у великі зміни.",
+        },
+        {
+          title: "Показує, що відстає",
+          description: "Відстежуй сфери життя й виправляй слабкі місця раніше.",
+        },
+        {
+          title: "Зменшує перевантаження",
+          description: "Менше рішень, чіткіші пріоритети, більше фокусу.",
+        },
+        {
+          title: "Виховує дисципліну м’яко",
+          description: "Покращуй систему, а не звинувачуй себе.",
+        },
+        {
+          title: "Робить прогрес видимим",
+          description: "Трекінг перетворює зусилля на мотивацію.",
+        },
+        {
+          title: "Допомагає швидко коригувати курс",
+          description: "Регулярні підсумки тримають тебе на шляху.",
+        },
+        {
+          title: "Узгоджує дії з цінностями",
+          description: "Щоденні звички відповідають людині, якою хочеш бути.",
+        },
+        {
+          title: "Вчи англійську системно",
+          description: "Щоденні мікрозвички + тижневий підсумок → стабільний прогрес.",
+        },
+        {
+          title: "Побудуй режим сну",
+          description: "Фіксований підйом/відбій + вечірній ритуал → стабільна енергія.",
+        },
+        {
+          title: "Розвивай кар’єру",
+          description: "Сходинка навичок + щотижневі результати → швидший ріст.",
+        },
+        {
+          title: "Увійди у форму",
+          description: "Простий план тренувань + кроки/білок → видимий результат.",
+        },
+        {
+          title: "Подолай прокрастинацію",
+          description: "Блоки глибокої роботи + менше відволікань → більше результату.",
+        },
+        {
+          title: "Контролюй фінанси",
+          description: "Тижневий огляд грошей + автовідкладання → передбачуваний ріст.",
+        },
+        {
+          title: "Харчуйся здоровіше за замовчуванням",
+          description: "Шаблони страв + підготовка → менше джанку, більше енергії.",
+        },
+        {
+          title: "Залишайся спокійним під стресом",
+          description: "Коротка щоденна практика регуляції → менше емоційних сплесків.",
+        },
+        {
+          title: "Зміцнюй стосунки",
+          description: "Заплановані дотики → глибший зв’язок з часом.",
+        },
       ],
     },
     steps: {
       title: "Як це працює?",
       subtitle: "Обери звичку, повторюй щодня, підсумуй тиждень",
-      cardTitle: "Маленький старт",
       items: [
-        "Обери одну звичку, яку хочеш тримати, або нову, яку хочеш виростити.",
-        "Отримуй невеликий щоденний крок і нагадування, щоб не забувати.",
-        "Підсумуй тиждень, підлаштуй складність і додай наступну звичку.",
-        "Повторюй, поки рутина не стане природною і автоматичною.",
+        {
+          title: "Обери звичку",
+          text: "Обери одну звичку, яку хочеш тримати, або нову, яку хочеш виростити.",
+        },
+        {
+          title: "Дій щодня",
+          text: "Отримуй невеликий щоденний крок і нагадування, щоб не забувати.",
+        },
+        {
+          title: "Підсумуй тиждень",
+          text: "Підсумуй тиждень, підлаштуй складність і додай наступну звичку.",
+        },
+        {
+          title: "Зроби автоматичним",
+          text: "Повторюй, поки рутина не стане природною і автоматичною.",
+        },
       ],
     },
     reviews: {

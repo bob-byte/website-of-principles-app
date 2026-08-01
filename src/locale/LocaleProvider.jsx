@@ -27,7 +27,7 @@ function readStoredTheme() {
   } catch {
     /* ignore */
   }
-  return "dark-orange";
+  return "dark-blue";
 }
 
 function getTranslationByKey(object, key) {
@@ -76,6 +76,7 @@ export function LocaleProvider({ children }) {
         return typeof value === "string" ? value : key;
       },
       benefitsItems: dictionary.benefits.items,
+      transformationsItems: dictionary.transformations.items,
       stepsItems: dictionary.steps.items,
       reviewsItems: dictionary.reviews.items,
     };

@@ -1,8 +1,8 @@
 function TipBadge({ text, className = "" }) {
     return (
         <div className={`tip ${className}`.trim()}>
-            <div className="dot"></div>
-            {text}
+            <span className="dot" aria-hidden="true" />
+            <span className="tip__text">{text}</span>
         </div>
     );
 }

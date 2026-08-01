@@ -1,5 +1,6 @@
 import SectionHeader from "./SectionHeader";
 import StepCard from "./StepCard";
+import RevealOnScroll from "./RevealOnScroll";
 import { useTranslation } from "../locale/LocaleProvider";
 
 function StepsSection() {
@@ -7,13 +8,17 @@ function StepsSection() {
 
     return (
         <section className="content__section">
-            <SectionHeader
-                title={translate("steps.title")}
-                subtitle={translate("steps.subtitle")}
-            />
+            <RevealOnScroll>
+                <SectionHeader
+                    title={translate("steps.title")}
+                    subtitle={translate("steps.subtitle")}
+                />
+            </RevealOnScroll>
             <div className="steps">
                 {stepsItems.map((item, index) => (
-                    <StepCard key={index} index={index} text={item} />
+                    <RevealOnScroll key={item.title} delay={Math.min(index * 70, 280)}>
+                        <StepCard index={index} title={item.title} text={item.text} />
+                    </RevealOnScroll>
                 ))}
             </div>
         </section>

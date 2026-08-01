@@ -1,14 +1,21 @@
-import { useTranslation } from "../locale/LocaleProvider";
-
-function BenefitCard({ index, text }) {
-    const { translate } = useTranslation();
-
+function BenefitCard({ emoji, title, description, unique }) {
     return (
-        <article className="card">
-            <h3>
-                {String(index + 1).padStart(2, "0")} {translate("benefits.cardKind")}
+        <article className="benefit-card">
+            <h3 className="benefit-card__title">
+                <span className="benefit-card__emoji" aria-hidden="true">
+                    {emoji}
+                </span>
+                {title}
             </h3>
-            <p>{text}</p>
+            <div className="benefit-card__body">
+                <p className="benefit-card__description">{description}</p>
+                {unique ? (
+                    <p className="benefit-card__unique">
+                        <span className="benefit-card__unique-label">{unique.label}</span>{" "}
+                        {unique.text}
+                    </p>
+                ) : null}
+            </div>
         </article>
     );
 }

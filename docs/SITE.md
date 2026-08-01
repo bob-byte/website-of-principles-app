@@ -39,13 +39,16 @@ URL збігаються зі старим ASP.NET-сайтом для SEO та 
 ```
 GetStarted.jsx
 ├── HeroSection          — заголовок, кнопка «Get started» (прокрутка до магазинів)
-├── BenefitsSection      — переваги
+├── BenefitsSection      — ключові цінності (з PDF: emoji + текст + «чому унікально»)
+├── TransformationsSection — трансформації (сітка)
 ├── StepsSection         — як працює застосунок
 ├── ReviewsSection       — відгуки
 └── FinalCtaSection      — фінальний блок + кнопки Play / App Store
 ```
 
 **Header.jsx** — логотип, посилання (Privacy, Agreement, Settings), вибір теми, мова EN/УКР, «Get started».
+
+У Hero кнопка «Learn More» прокручує до секції переваг (`#benefits`).
 
 ### Кнопки магазинів
 

@@ -1,0 +1,30 @@
+export const BENEFIT_GLOWS = [
+  { top: "10%", left: "6%", size: 320, opacity: 0.7 },
+  { top: "22%", left: "82%", size: 260, opacity: 0.55 },
+  { top: "48%", left: "16%", size: 360, opacity: 0.62 },
+  { top: "62%", left: "68%", size: 280, opacity: 0.5 },
+  { top: "84%", left: "10%", size: 240, opacity: 0.48 },
+  { top: "78%", left: "88%", size: 300, opacity: 0.58 },
+];
+
+function SectionGlowLayer({ glows }) {
+  return (
+    <div className="section-glow-layer" aria-hidden="true">
+      {glows.map((glow, index) => (
+        <span
+          key={index}
+          className="section-glow-layer__orb"
+          style={{
+            top: glow.top,
+            left: glow.left,
+            width: glow.size,
+            height: glow.size,
+            opacity: glow.opacity,
+          }}
+        />
+      ))}
+    </div>
+  );
+}
+
+export default SectionGlowLayer;

@@ -1,6 +1,8 @@
-import AppButton from "./AppButton";
 import TipBadge from "./TipBadge";
+import AppButton from "./AppButton";
+import HeroVideo from "./HeroVideo";
 import { scrollToStoreSection } from "../utils/scrollToStoreSection";
+import { scrollToBenefitsSection } from "../utils/scrollToBenefitsSection";
 import { useTranslation } from "../locale/LocaleProvider";
 
 function HeroSection() {
@@ -13,10 +15,13 @@ function HeroSection() {
                 className="hero__intro-tip"
             />
 
-            <h1>
-                {translate("hero.titleLine1")} <br />
-                <span className="primary__color">{translate("hero.titleAccent")}</span>
-            </h1>
+            <div className="hero__title-wrap">
+                <span className="hero__glow" aria-hidden="true" />
+                <h1>
+                    {translate("hero.titleLine1")} <br />
+                    <span className="primary__color">{translate("hero.titleAccent")}</span>
+                </h1>
+            </div>
 
             <p className="info__paragraph">
                 {translate("hero.paragraph")}
@@ -26,7 +31,13 @@ function HeroSection() {
                 <AppButton variant="primary" onClick={scrollToStoreSection}>
                     {translate("hero.getStarted")}
                 </AppButton>
-                <AppButton variant="ghost">{translate("hero.learnMore")}</AppButton>
+                <button
+                    type="button"
+                    className="translucent__btn hero__learn-more"
+                    onClick={scrollToBenefitsSection}
+                >
+                    {translate("hero.learnMore")}
+                </button>
             </div>
 
             <TipBadge
@@ -34,11 +45,7 @@ function HeroSection() {
                 className="hero__video-tip"
             />
 
-            <iframe
-                title={translate("hero.iframeTitle")}
-                src="https://www.youtube.com/embed/0z0qm_XzecY"
-                allowFullScreen
-            ></iframe>
+            <HeroVideo />
         </main>
     );
 }
