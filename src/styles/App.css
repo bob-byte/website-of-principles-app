@@ -91,6 +91,7 @@
 
 html {
   max-width: 100%;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -393,6 +394,11 @@ header ul li a {
   margin-top: 10px;
   font-size: clamp(1.2rem, 2.8vw, 1.7rem);
   color: var(--color-primary-orange);
+}
+
+.legal-page__section,
+.legal-page [id] {
+  scroll-margin-top: 72px;
 }
 
 .legal-page__updated {
@@ -1540,6 +1546,11 @@ iframe {
     backdrop-filter: blur(6px);
   }
 
+  .legal-page__section,
+  .legal-page [id] {
+    scroll-margin-top: 112px;
+  }
+
   .mobile-navbar__list {
     display: flex;
     align-items: center;
@@ -1658,6 +1669,11 @@ iframe {
 
   .legal-page-shell {
     padding: 12px;
+  }
+
+  .legal-page__section,
+  .legal-page [id] {
+    scroll-margin-top: 112px;
   }
 
   main {
