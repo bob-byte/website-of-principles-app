@@ -91,7 +91,8 @@
 
 html {
   max-width: 100%;
-  overflow-x: clip;
+  /* hidden (not clip): overflow-x: clip on html/body breaks IntersectionObserver on iOS WebKit */
+  overflow-x: hidden;
 }
 
 body {
@@ -100,7 +101,7 @@ body {
   font-family: var(--font-family);
   font-size: var(--font-size-base);
   max-width: 100%;
-  overflow-x: clip;
+  overflow-x: hidden;
 }
 
 #root {
@@ -1023,24 +1024,17 @@ iframe {
 .reveal-on-scroll {
   opacity: 0;
   transform: translateY(28px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+  transition-delay: var(--reveal-delay, 0ms);
   min-width: 0;
   max-width: 100%;
 }
 
+/* Prefer transition over keyframes: iOS WebKit often skips CSS animations on
+   class toggle, which left elements stuck at opacity: 0. */
 .reveal-on-scroll.is-visible {
-  animation: reveal-up 0.7s ease forwards;
-  animation-delay: var(--reveal-delay, 0ms);
-}
-
-@keyframes reveal-up {
-  from {
-    opacity: 0;
-    transform: translateY(28px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  opacity: 1;
+  transform: translateY(0);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1048,7 +1042,7 @@ iframe {
   .reveal-on-scroll.is-visible {
     opacity: 1;
     transform: none;
-    animation: none;
+    transition: none;
   }
 }
 

@@ -47,6 +47,16 @@ function HeroVideo() {
             src={thumbnailUrl}
             alt=""
             decoding="async"
+            onLoad={(event) => {
+              // Missing maxresdefault returns a 120x90 JPEG with HTTP 404.
+              // Browsers still paint it and may never fire onError.
+              const { naturalWidth, naturalHeight } = event.currentTarget;
+              if (naturalWidth <= 120 && naturalHeight <= 90) {
+                setThumbQualityIndex((current) => (
+                  current < THUMB_QUALITIES.length - 1 ? current + 1 : current
+                ));
+              }
+            }}
             onError={() => {
               setThumbQualityIndex((current) => (
                 current < THUMB_QUALITIES.length - 1 ? current + 1 : current
