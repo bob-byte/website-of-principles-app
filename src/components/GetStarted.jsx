@@ -21,9 +21,7 @@ function GetStarted() {
         <div className="page-sections">
             <section className="section-shell">
                 <div className="container">
-                    <RevealOnScroll>
-                        <HeroSection />
-                    </RevealOnScroll>
+                    <HeroSection />
                 </div>
             </section>
             <hr className="section-divider" />
