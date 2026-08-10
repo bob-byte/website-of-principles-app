@@ -91,8 +91,6 @@
 
 html {
   max-width: 100%;
-  /* hidden (not clip): overflow-x: clip on html/body breaks IntersectionObserver on iOS WebKit */
-  overflow-x: hidden;
 }
 
 body {
@@ -101,7 +99,6 @@ body {
   font-family: var(--font-family);
   font-size: var(--font-size-base);
   max-width: 100%;
-  overflow-x: hidden;
 }
 
 #root {
@@ -762,7 +759,8 @@ header ul li a {
 .section-shell--glows {
   position: relative;
   z-index: 0;
-  overflow: visible;
+  /* Clip glow orbs here — never on html/body/#root, which creates a nested page scrollbar */
+  overflow-x: clip;
 }
 
 .section-shell--glows > .container {
@@ -776,7 +774,7 @@ header ul li a {
   inset: 0;
   z-index: 0;
   pointer-events: none;
-  overflow: visible;
+  overflow: hidden;
 }
 
 .section-glow-layer__orb {
@@ -1028,6 +1026,8 @@ iframe {
   transition-delay: var(--reveal-delay, 0ms);
   min-width: 0;
   max-width: 100%;
+  /* Keep vertical touch scrolling available while transforms animate */
+  touch-action: pan-y;
 }
 
 /* Prefer transition over keyframes: iOS WebKit often skips CSS animations on
