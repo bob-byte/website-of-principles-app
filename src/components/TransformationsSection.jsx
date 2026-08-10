@@ -38,6 +38,7 @@ function TransformationsSection() {
                         delay={Math.min(index * 35, 280)}
                     >
                         <TransformationCard
+                            emoji={item.emoji}
                             title={item.title}
                             description={item.description}
                         />

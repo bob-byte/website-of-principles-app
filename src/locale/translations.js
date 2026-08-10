@@ -37,7 +37,7 @@ export const translations = {
           description:
             "Principles is not just a habit tracker. Every habit has a concrete goal it helps achieve. That turns a chaotic “I just want to be better” into a structured path toward a personal goal.",
           unique:
-            "most competitors only track habits — not the link between a habit and the result.",
+            "most other apps only track habits — not the link between a habit and the result.",
         },
         {
           emoji: "🤖",
@@ -94,70 +94,87 @@ export const translations = {
       subtitle: "What changes when habits meet a clear system",
       items: [
         {
+          emoji: "🗺️",
           title: "Turns goals into a clear plan",
           description: 'Convert "want" into goals + next steps.',
         },
         {
+          emoji: "🔄",
           title: "Builds consistency via habits",
           description: "Small daily actions compound into big change.",
         },
         {
-          title: "Shows what’s lagging behind",
-          description: "Track life areas and fix weak spots early.",
+          emoji: "🔍",
+          title: "Fix what’s lagging behind",
+          description: "Fix weak spots early.",
         },
         {
+          emoji: "🧘",
           title: "Reduces overwhelm",
           description: "Fewer decisions, clearer priorities, more focus.",
         },
         {
+          emoji: "🧭",
           title: "Builds discipline gently",
           description: "Improve the system, not self-blame.",
         },
         {
+          emoji: "📊",
           title: "Makes progress visible",
           description: "Tracking turns effort into motivation.",
         },
         {
+          emoji: "⚡",
           title: "Helps you course-correct fast",
           description: "Regular reviews keep you on track.",
         },
         {
+          emoji: "❤️",
           title: "Aligns actions with values",
           description: "Daily habits match the person you want to be.",
         },
         {
+          emoji: "🇬🇧",
           title: "Learn English with a system",
           description: "Daily micro-habits + weekly review → steady progress.",
         },
         {
+          emoji: "😴",
           title: "Build a sleep routine",
           description: "Fixed wake/bed times + evening ritual → stable energy.",
         },
         {
+          emoji: "🚀",
           title: "Grow your career",
           description: "Skill ladder + weekly shipped artifacts → faster leveling up.",
         },
         {
+          emoji: "🏋️",
           title: "Get in shape",
           description: "Simple training plan + steps/protein baseline → visible results.",
         },
         {
+          emoji: "⏰",
           title: "Beat procrastination",
           description: "Deep-work blocks + fewer distractions → more output.",
         },
         {
+          emoji: "💰",
           title: "Control finances",
           description: "Weekly money review + auto-saving → predictable growth.",
         },
         {
+          emoji: "🥗",
           title: "Eat healthier by defaults",
           description: "Meal templates + prep → less junk, more energy.",
         },
         {
+          emoji: "🌊",
           title: "Stay calm under stress",
           description: "Short daily regulation practice → fewer emotional spikes.",
         },
         {
+          emoji: "🤝",
           title: "Strengthen relationships",
           description: "Scheduled touchpoints → deeper connection over time.",
         },
@@ -281,7 +298,7 @@ export const translations = {
           description:
             "Принципи — це не просто трекер звичок. Кожна звичка має конкретну ціль, яку вона допомагає досягти. Це перетворює хаотичне «я просто хочу бути кращим» у структурований шлях до особистої мети.",
           unique:
-            "більшість конкурентів фіксують лише звички, а не звʼязок між звичкою та результатом.",
+            "більшість інших додатків фіксують лише звички, а не звʼязок між звичкою та результатом.",
         },
         {
           emoji: "🤖",
@@ -338,70 +355,87 @@ export const translations = {
       subtitle: "Що змінюється, коли звички стають системою",
       items: [
         {
+          emoji: "🗺️",
           title: "Перетворює бажання на план",
           description: "З «хочу» — у цілі й наступні кроки.",
         },
         {
+          emoji: "🔄",
           title: "Будує стабільність через звички",
           description: "Малі щоденні дії складаються у великі зміни.",
         },
         {
+          emoji: "🔍",
           title: "Показує, що відстає",
           description: "Відстежуй сфери життя й виправляй слабкі місця раніше.",
         },
         {
+          emoji: "🧘",
           title: "Зменшує перевантаження",
           description: "Менше рішень, чіткіші пріоритети, більше фокусу.",
         },
         {
+          emoji: "🧭",
           title: "Виховує дисципліну м’яко",
           description: "Покращуй систему, а не звинувачуй себе.",
         },
         {
+          emoji: "📊",
           title: "Робить прогрес видимим",
           description: "Трекінг перетворює зусилля на мотивацію.",
         },
         {
+          emoji: "⚡",
           title: "Допомагає швидко коригувати курс",
           description: "Регулярні підсумки тримають тебе на шляху.",
         },
         {
+          emoji: "❤️",
           title: "Узгоджує дії з цінностями",
           description: "Щоденні звички відповідають людині, якою хочеш бути.",
         },
         {
+          emoji: "🇬🇧",
           title: "Вчи англійську системно",
           description: "Щоденні мікрозвички + тижневий підсумок → стабільний прогрес.",
         },
         {
+          emoji: "😴",
           title: "Побудуй режим сну",
           description: "Фіксований підйом/відбій + вечірній ритуал → стабільна енергія.",
         },
         {
+          emoji: "🚀",
           title: "Розвивай кар’єру",
           description: "Сходинка навичок + щотижневі результати → швидший ріст.",
         },
         {
+          emoji: "🏋️",
           title: "Увійди у форму",
           description: "Простий план тренувань + кроки/білок → видимий результат.",
         },
         {
+          emoji: "⏰",
           title: "Подолай прокрастинацію",
           description: "Блоки глибокої роботи + менше відволікань → більше результату.",
         },
         {
+          emoji: "💰",
           title: "Контролюй фінанси",
           description: "Тижневий огляд грошей + автовідкладання → передбачуваний ріст.",
         },
         {
+          emoji: "🥗",
           title: "Харчуйся здоровіше за замовчуванням",
           description: "Шаблони страв + підготовка → менше джанку, більше енергії.",
         },
         {
+          emoji: "🌊",
           title: "Залишайся спокійним під стресом",
           description: "Коротка щоденна практика регуляції → менше емоційних сплесків.",
         },
         {
+          emoji: "🤝",
           title: "Зміцнюй стосунки",
           description: "Заплановані дотики → глибший зв’язок з часом.",
         },
