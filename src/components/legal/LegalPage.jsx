@@ -94,6 +94,14 @@ function LegalPage({ title, updatedAt, introHtml, sections }) {
           />
         )}
 
+        <nav className="legal-page__toc" aria-label="On this page">
+          {sections.map((section) => (
+            <a key={section.id} href={`#${section.id}`}>
+              {section.title}
+            </a>
+          ))}
+        </nav>
+
         {sections.map((section) => (
           <LegalSection key={section.id} section={section} />
         ))}
