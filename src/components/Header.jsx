@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import AppButton from "./AppButton";
 import LegalPageLink from "./legal/LegalPageLink";
-import { scrollToStoreSection } from "../utils/scrollToStoreSection";
+import { openAppStore } from "../utils/openAppStore";
 import { useTranslation } from "../locale/LocaleProvider";
 import logoOrange from "../assets/logo-orange.png";
 import logoBlue from "../assets/logo-blue.png";
@@ -98,7 +98,7 @@ function Header(){
                         <option value="en">EN</option>
                         <option value="uk">УКР</option>
                     </select>
-                    <AppButton variant="primary" onClick={scrollToStoreSection}>
+                    <AppButton variant="primary" onClick={openAppStore}>
                         {translate("header.getStarted")}
                     </AppButton>
                 </div>

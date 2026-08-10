@@ -1,7 +1,7 @@
 import TipBadge from "./TipBadge";
 import AppButton from "./AppButton";
 import HeroVideo from "./HeroVideo";
-import { scrollToStoreSection } from "../utils/scrollToStoreSection";
+import { openAppStore } from "../utils/openAppStore";
 import { scrollToBenefitsSection } from "../utils/scrollToBenefitsSection";
 import { useTranslation } from "../locale/LocaleProvider";
 
@@ -28,7 +28,7 @@ function HeroSection() {
             </p>
 
             <div className="main__btns">
-                <AppButton variant="primary" onClick={scrollToStoreSection}>
+                <AppButton variant="primary" onClick={openAppStore}>
                     {translate("hero.getStarted")}
                 </AppButton>
                 <button
