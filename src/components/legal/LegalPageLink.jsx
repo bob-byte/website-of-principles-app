@@ -1,6 +1,6 @@
-function LegalPageLink({ href, children, className = "" }) {
+function LegalPageLink({ href, children, className = "", ...props }) {
   return (
-    <a href={href} className={`legal-page-link ${className}`.trim()}>
+    <a href={href} className={`legal-page-link ${className}`.trim()} {...props}>
       {children}
     </a>
   );

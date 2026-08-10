@@ -11,6 +11,7 @@ function Header(){
     const [isThemeMenuOpen, setIsThemeMenuOpen] = useState(false);
     const themeMenuRef = useRef(null);
     const logo = theme.includes("blue") ? logoBlue : logoOrange;
+    const pathname = window.location.pathname.replace(/\/+$/, "") || "/";
     const navigationLinks = [
         { key: "header.privacyPolicy", href: "/privacypolicy" },
         { key: "header.userAgreement", href: "/useragreement" },
@@ -35,24 +36,41 @@ function Header(){
         return () => document.removeEventListener("pointerdown", onDocumentPointerDown);
     }, []);
 
+    const renderNavLink = (link) => {
+        const isActive = pathname === link.href;
+        const className = `legal-page-link--nav${isActive ? " is-active" : ""}`;
+
+        if (link.href.startsWith("/")) {
+            return (
+                <LegalPageLink
+                    href={link.href}
+                    className={className}
+                    aria-current={isActive ? "page" : undefined}
+                >
+                    {translate(link.key)}
+                </LegalPageLink>
+            );
+        }
+
+        return (
+            <a href={link.href} className={className} aria-current={isActive ? "page" : undefined}>
+                {translate(link.key)}
+            </a>
+        );
+    };
+
     return(
         <>
             <header>
                 <a className="logo__btn" href="/">
                     <img src={logo} alt={translate("header.logoAlt")} />
-                    {translate("header.home")}
+                    <span className="logo__btn-text">{translate("header.home")}</span>
                 </a>
                 
                 <ul className="header__nav-list">
                     {navigationLinks.map((link) => (
                         <li key={link.key}>
-                            {link.href.startsWith("/") ? (
-                                <LegalPageLink href={link.href} className="legal-page-link--nav">
-                                    {translate(link.key)}
-                                </LegalPageLink>
-                            ) : (
-                                <a href={link.href}>{translate(link.key)}</a>
-                            )}
+                            {renderNavLink(link)}
                         </li>
                     ))}
                 </ul>
@@ -107,13 +125,7 @@ function Header(){
                 <ul className="mobile-navbar__list">
                     {navigationLinks.map((link) => (
                         <li key={`mobile-${link.key}`}>
-                            {link.href.startsWith("/") ? (
-                                <LegalPageLink href={link.href} className="legal-page-link--nav">
-                                    {translate(link.key)}
-                                </LegalPageLink>
-                            ) : (
-                                <a href={link.href}>{translate(link.key)}</a>
-                            )}
+                            {renderNavLink(link)}
                         </li>
                     ))}
                 </ul>

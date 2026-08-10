@@ -128,6 +128,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 12px;
   padding: 16px 48px;
   border-bottom: 1px solid var(--color-header-border);
   background: var(--color-header-bg);
@@ -138,12 +139,20 @@ header {
   display: flex;
   align-items: center;
   gap: 8px;
+  min-width: 0;
+  flex-shrink: 1;
   font-size: var(--font-size-logo);
   font-weight: 700;
   background: var(--gradient-linear-orange);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+}
+
+.logo__btn-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .logo__mark {
@@ -174,6 +183,7 @@ header ul li a {
 .nav__btns {
   display: flex;
   align-items: center;
+  flex-shrink: 0;
   gap: 12px;
 }
 
@@ -495,6 +505,18 @@ header ul li a {
 .legal-page-link--nav:hover {
   border: none;
   opacity: 0.85;
+}
+
+.legal-page-link--nav.is-active,
+.legal-page-link--nav[aria-current="page"] {
+  color: var(--color-primary-orange);
+  font-weight: 600;
+  opacity: 1;
+}
+
+.legal-page-link--nav.is-active:hover,
+.legal-page-link--nav[aria-current="page"]:hover {
+  opacity: 1;
 }
 
 .settings-page {
@@ -1554,26 +1576,47 @@ iframe {
     --font-size-button-mobile: 0.85rem;
   }
 
-  .nav__btns {
+  header {
+    padding: 12px 16px;
     gap: 8px;
   }
 
+  .mobile-navbar {
+    top: 56px;
+  }
+
+  .logo__btn-text {
+    display: none;
+  }
+
+  .nav__btns {
+    gap: 6px;
+  }
+
   .theme-select__trigger {
-    width: 44px;
+    width: 40px;
     height: 32px;
-    padding-right: 13px;
+    padding-right: 12px;
   }
 
   .theme-select__trigger::after {
+    right: 8px;
     width: 7px;
     height: 7px;
   }
 
   .header-language-select {
-    min-width: 4rem;
-    padding-left: 30px;
-    background-position: left 10px center, right 9px center;
-    background-size: 13px, 10px;
+    min-width: 0;
+    padding: 7px 28px 7px 28px;
+    background-position: left 9px center, right 8px center;
+    background-size: 12px, 9px;
+    font-size: 0.8rem;
+  }
+
+  .nav__btns .getStarted__btn {
+    padding: 8px 12px;
+    font-size: var(--font-size-button-mobile);
+    white-space: nowrap;
   }
 
   .getStarted__btn,
