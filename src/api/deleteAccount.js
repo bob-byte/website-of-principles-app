@@ -128,7 +128,7 @@ async function getEncryptionKeys() {
   const secondKey = trimEnvValue(env("SECOND_KEY_OF_PASSWORD_ENCRYPTION"));
 
   if (!firstKey || !secondKey) {
-    throw new Error("Account deletion is not configured. Contact support at app@principles.top.");
+    throw new Error("Account deletion is not configured. Contact support at batsbohdan@gmail.com.");
   }
 
   assertEncryptionKeys(firstKey, secondKey);
