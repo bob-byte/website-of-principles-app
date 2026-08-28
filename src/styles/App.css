@@ -1092,6 +1092,10 @@ iframe {
   font-size: clamp(1.8rem, 4.2vw, 2.75rem);
 }
 
+html[lang="uk"] .final__cta-title-rest {
+  font-size: calc(1em - 4px);
+}
+
 .section__subtitle {
   color: var(--color-subtitle);
   margin-bottom: 40px;

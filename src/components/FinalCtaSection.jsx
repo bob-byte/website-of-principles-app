@@ -15,7 +15,7 @@ function FinalCtaSection() {
                 <TipBadge text={translate("finalCta.badge")} />
                 <h2>
                     <span className="primary__color">{translate("finalCta.titleLead")}</span> <br />
-                    {translate("finalCta.titleRest")}
+                    <span className="final__cta-title-rest">{translate("finalCta.titleRest")}</span>
                 </h2>
                 <p className="info__paragraph">
                     {translate("finalCta.paragraph")}
