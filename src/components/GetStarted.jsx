@@ -6,7 +6,7 @@ import StepsSection from "./StepsSection";
 import ReviewsSection from "./ReviewsSection";
 import FinalCtaSection from "./FinalCtaSection";
 import RevealOnScroll from "./RevealOnScroll";
-import SectionGlowLayer, { BENEFIT_GLOWS } from "./SectionGlowLayer";
+import SectionGlowLayer, { BENEFIT_GLOWS, TRANSFORMATION_GLOWS } from "./SectionGlowLayer";
 import { STORE_DOWNLOAD_SECTION_ID } from "../config/storeLinks";
 import { scrollToStoreSection } from "../utils/scrollToStoreSection";
 
@@ -34,7 +34,8 @@ function GetStarted() {
             </section>
             <hr className="section-divider" />
 
-            <section className="section-shell" id="transformations">
+            <section className="section-shell section-shell--glows" id="transformations">
+                <SectionGlowLayer glows={TRANSFORMATION_GLOWS} />
                 <div className="container">
                     <TransformationsSection />
                 </div>
