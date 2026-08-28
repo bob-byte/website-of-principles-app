@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import RevealOnScroll from "./RevealOnScroll";
 import { useTranslation } from "../locale/LocaleProvider";
 
 const HERO_VIDEO_BY_LOCALE = {
@@ -26,7 +27,7 @@ function HeroVideo() {
     + "?autoplay=1&playsinline=1&rel=0&modestbranding=1&controls=1&fs=1&iv_load_policy=3";
 
   return (
-    <div className="hero-video">
+    <RevealOnScroll className="hero-video">
       {isPlaying ? (
         <iframe
           title={translate("hero.iframeTitle")}
@@ -69,7 +70,7 @@ function HeroVideo() {
           </span>
         </button>
       )}
-    </div>
+    </RevealOnScroll>
   );
 }
 
