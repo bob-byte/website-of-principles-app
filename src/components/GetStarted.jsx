@@ -54,6 +54,7 @@ function GetStarted() {
                     <ReviewsSection />
                 </div>
             </section>
+            <hr className="section-divider" />
 
             <section className="section-shell">
                 <RevealOnScroll>
