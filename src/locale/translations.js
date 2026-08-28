@@ -16,7 +16,7 @@ export const translations = {
     },
     hero: {
       introTip: "Habits and reminders that actually stick",
-      titleLine1: "Build better habits",
+      titleLine1: "Fix lagging areas of life",
       titleAccent: "with Principles",
       paragraph:
         "Principles helps you follow through on habits and learn new ones: tiny daily actions, clear routines, and timely reminders so you are not relying on motivation alone.",
@@ -227,7 +227,7 @@ export const translations = {
     finalCta: {
       badge: "This is your life, your story",
       titleLead: "PRINCIPLES",
-      titleRest: "is your way to become better",
+      titleRest: "is your way to fix lagging areas of life",
       paragraph:
         "Start with one habit and one reminder today. Small repeats beat big plans — Principles is built for that.",
       joinUs: "Join Us",
@@ -277,7 +277,7 @@ export const translations = {
     },
     hero: {
       introTip: "Звички та нагадування, які справді тримаються",
-      titleLine1: "Формуй кращі звички",
+      titleLine1: "Виправ відстаючі сфери життя",
       titleAccent: "разом із Principles",
       paragraph:
         "Principles допомагає дотримуватись звичок і привчатись до нових: маленькі щоденні кроки, зрозумілі ритуали й своєчасні нагадування — щоб не покладатись лише на мотивацію.",
@@ -488,7 +488,7 @@ export const translations = {
     finalCta: {
       badge: "Це твоє життя, твоя історія",
       titleLead: "PRINCIPLES",
-      titleRest: "— твій шлях стати кращим",
+      titleRest: "твій шлях виправити свої відстаючі сфери",
       paragraph:
         "Почни сьогодні з однієї звички й одного нагадування. Малі повтори перемагають великі плани — саме для цього створений Principles.",
       joinUs: "Приєднатися",
