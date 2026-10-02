@@ -20,14 +20,34 @@ function readStoredLocale() {
   return "en";
 }
 
+function defaultOrangeTheme() {
+  if (typeof window !== "undefined" && window.matchMedia("(prefers-color-scheme: light)").matches) {
+    return "light-orange";
+  }
+  return "dark-orange";
+}
+
+function themeFromQuery() {
+  if (typeof window === "undefined") return null;
+  try {
+    const value = new URLSearchParams(window.location.search).get("theme");
+    return SUPPORTED_THEMES.includes(value) ? value : null;
+  } catch {
+    return null;
+  }
+}
+
 function readStoredTheme() {
+  const fromQuery = themeFromQuery();
+  if (fromQuery) return fromQuery;
+
   try {
     const saved = localStorage.getItem(THEME_STORAGE_KEY);
     if (SUPPORTED_THEMES.includes(saved)) return saved;
   } catch {
     /* ignore */
   }
-  return "dark-blue";
+  return defaultOrangeTheme();
 }
 
 function getTranslationByKey(object, key) {

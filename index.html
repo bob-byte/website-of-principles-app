@@ -4,8 +4,21 @@
     <meta charset="UTF-8" />
     <script>
       try {
-        var theme = localStorage.getItem("principles-theme");
-        if (theme) document.documentElement.dataset.theme = theme;
+        var supported = ["dark-orange", "dark-blue", "light-orange", "light-blue"];
+        var params = new URLSearchParams(window.location.search);
+        var theme = params.get("theme");
+        if (!supported.includes(theme)) {
+          theme = localStorage.getItem("principles-theme");
+        }
+        if (!supported.includes(theme)) {
+          theme = window.matchMedia("(prefers-color-scheme: light)").matches
+            ? "light-orange"
+            : "dark-orange";
+        }
+        document.documentElement.dataset.theme = theme;
+        if (params.has("theme") && supported.includes(theme)) {
+          localStorage.setItem("principles-theme", theme);
+        }
       } catch (_) {}
     </script>
     <link rel="icon" type="image/png" href="/images/tabicon.png" />
