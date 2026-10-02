@@ -5,12 +5,12 @@ export const pageSeo = {
     en: {
       title: `${SITE_NAME} — Habits for Goals`,
       description:
-        "Principles helps you build better habits with daily actions, clear routines, and timely reminders. Available on Android and iOS.",
+        "Principles turns goals into daily follow-through: habits, Tasks for today, reminders, home widgets, and an AI Helper. Available on Android, iOS, and macOS.",
     },
     uk: {
       title: `${SITE_NAME} — звички для цілей`,
       description:
-        "Principles допомагає формувати кращі звички: щоденні кроки, зрозумілі ритуали та своєчасні нагадування. Доступно на Android та iOS.",
+        "Principles перетворює цілі на щоденне виконання: звички, Tasks на сьогодні, нагадування, віджети та AI Helper. Доступно на Android, iOS та macOS.",
     },
   },
   privacyPolicy: {

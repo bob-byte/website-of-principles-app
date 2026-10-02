@@ -15,14 +15,14 @@ export const translations = {
       logoAlt: "Logo",
     },
     hero: {
-      introTip: "Habits and reminders that actually stick",
+      introTip: "Goals, habits, tasks, and reminders that stick",
       titleLine1: "Fix lagging areas of life",
       titleAccent: "with Principles",
       paragraph:
-        "Principles helps you follow through on habits and learn new ones: tiny daily actions, clear routines, and timely reminders so you are not relying on motivation alone.",
+        "Principles helps you turn goals into daily follow-through: habits that serve each goal, a Tasks list for today, reminders that stick, and an AI Helper that knows your mission and slogan — so you are not relying on motivation alone.",
       getStarted: "Get Started",
       learnMore: "Learn More",
-      videoTip: "See how habits and reminders work in this short intro on our YouTube channel",
+      videoTip: "See how goals, habits, and reminders work in this short intro on our YouTube channel",
       iframeTitle: "Principles intro",
       playVideo: "Play video",
     },
@@ -40,10 +40,18 @@ export const translations = {
             "most other apps only track habits — not the link between a habit and the result.",
         },
         {
+          emoji: "✅",
+          title: "Tasks for today",
+          description:
+            "One list for today’s habits and one-off tasks, with checklists and reminders — so what matters today stays visible without jumping between screens.",
+          unique:
+            "habits and one-offs live together in the same daily workflow.",
+        },
+        {
           emoji: "🤖",
           title: "Personalization through AI",
           description:
-            "A GPT-based assistant knows your mission, motto, gender, and goals so it can recommend the habits that help solve your real problems.",
+            "AI can recommend habits for a goal and suggest slogan or mission text. Your profile mission and slogan steer those recommendations toward what you actually care about.",
           unique:
             "other apps just give template habit lists. Principles adapts recommendations to you personally.",
         },
@@ -51,8 +59,14 @@ export const translations = {
           emoji: "🧩",
           title: "Systems principle",
           description:
-            "The app helps you build not isolated habits, but a complete development system. Everything connects: Goal → Habits → Results.",
+            "The app helps you build not isolated habits, but a complete development system. Everything connects: Goal → Habits → Tasks → Results.",
           unique: "you see how small actions form big changes in life.",
+        },
+        {
+          emoji: "📱",
+          title: "Home Screen widgets",
+          description:
+            "Month, week, and today widgets show scheduled tasks and habits due that day — so you can check what’s next without opening the app.",
         },
         {
           emoji: "🌱",
@@ -67,25 +81,47 @@ export const translations = {
             "Principles was created by a Ukrainian team that combined the depth of development philosophy with modern technology. A product about consciousness, willpower, and inner order.",
         },
         {
-          emoji: "💭",
-          title: "Self-reflection and awareness",
-          description:
-            "Every habit includes a self-reflection question that helps you understand the inner reasons for resistance and keep mental clarity.",
-        },
-        {
           emoji: "📈",
           title: "Growth through progress, not perfectionism",
           description:
-            "The progress algorithm accounts for habit difficulty and frequency, forming a realistic path without guilt for missed days.",
+            "Habit detail shows progress, streaks, and stability. The progress algorithm accounts for difficulty and frequency — a realistic path without guilt for missed days.",
           unique:
             "most apps demotivate you when you miss something. Principles supports you and helps you recover.",
         },
         {
           emoji: "💬",
-          title: "Self-development assistant",
+          title: "AI Helper for support",
           description:
-            "In the built-in chat you can ask any questions about yourself, goals, and motivation — and get smart advice from AI that already knows your habits, mission, and priorities.",
+            "In the built-in chat you can ask about goals, habits, tasks, and priorities — and get advice from AI that already knows your mission, slogan, and what you track. Habit recommendations stay available where you set goals; Helper is for support.",
           unique: "this is not just a bot — it’s a mentor that understands the context of your life.",
+        },
+        {
+          emoji: "🔔",
+          title: "Reminders that stick",
+          description:
+            "Schedule habit and task reminders, including constant alerts that keep pinging until you complete or skip — plus a daily progress check-in that opens today’s Tasks.",
+          unique:
+            "reminders are not a one-shot ping; they stay with you until the action is done.",
+        },
+        {
+          emoji: "🔄",
+          title: "Synced across your devices",
+          description:
+            "Goals, habits, tasks, and AI chats sync between phone, tablet, and Mac. Silent push wakes other devices so changes show up without restarting the app.",
+        },
+        {
+          emoji: "🧭",
+          title: "Mission and slogan",
+          description:
+            "Write your life mission and slogan in Settings — optionally with AI suggestions. They feed habit recommendations so the system stays aligned with who you want to become.",
+          unique:
+            "profile text is not decoration; it steers what the app recommends next.",
+        },
+        {
+          emoji: "📋",
+          title: "Task checklists",
+          description:
+            "Break a task into subtasks. Completing the last open item finishes the parent automatically — so big one-offs become clear next steps instead of vague intentions.",
         },
       ],
     },
@@ -182,29 +218,29 @@ export const translations = {
     },
     steps: {
       title: "How it works?",
-      subtitle: "Pick a habit, repeat daily, review weekly",
+      subtitle: "Goal → habits → daily tasks → review",
       items: [
         {
-          title: "Choose a habit",
-          text: "Choose one habit you want to keep or a new one you want to build.",
+          title: "Set a goal",
+          text: "Define what you want to improve — optionally with notes.",
         },
         {
-          title: "Act every day",
-          text: "Get a small daily prompt and reminders so you remember to act.",
+          title: "Attach habits",
+          text: "Add habits that automate progress, or generate them with AI.",
         },
         {
-          title: "Review the week",
-          text: "Review the week, adjust difficulty, and stack the next habit.",
+          title: "Work Today",
+          text: "Use Tasks for one-offs and today’s habits; reminders keep you on track.",
         },
         {
-          title: "Make it automatic",
-          text: "Repeat until your routines feel natural and automatic.",
+          title: "Review & ask AI",
+          text: "Check streaks and progress; use AI Helper when you need support.",
         },
       ],
     },
     reviews: {
       title: "Feedback from customers",
-      subtitle: "What people who use the app say about habits and reminders",
+      subtitle: "What people who use the app say about goals, habits, and follow-through",
       items: [
         {
           name: "Kateryna L.",
@@ -229,7 +265,7 @@ export const translations = {
       titleLead: "PRINCIPLES",
       titleRest: "is your way to fix lagging areas of life",
       paragraph:
-        "Start with one habit and one reminder today. Small repeats beat big plans — Principles is built for that.",
+        "Start with one goal, one habit, and today’s Tasks. Small repeats beat big plans — Principles is built for that.",
       joinUs: "Join Us",
       miniLogoAlt: "Logo",
     },
@@ -237,9 +273,9 @@ export const translations = {
       title: "Delete Your Account",
       importantLabel: "Important:",
       importantText:
-        "Once your account is deleted, all associated data will be permanently removed and cannot be recovered. However, certain anonymous error logs related to the app's functionality may be stored on the server to improve app performance. If you are signed up using Google or Apple and didn't change your password separately, you can delete your account only through our mobile app. Please download the app -> log in to the account you want to delete -> go to the \"Profile\" tab -> click on the icon located in the upper right corner of the screen -> click on the \"Delete account\" button -> \"Yes\" -> your account is successfully deleted.",
+        "Once your account is deleted, all associated data will be permanently removed and cannot be recovered. However, certain anonymous error logs related to the app's functionality may be stored on the server to improve app performance. If you signed up with Google or Apple and never set a password, delete the account only in the mobile app: open the app → log in → Settings → Delete account → confirm. Website deletion works only for email/password accounts.",
       aiNotice:
-        "Please note that OpenAI and Microsoft Azure AI are used within our app to provide certain functionality. If you wish to delete your data from their servers, please contact OpenAI and Microsoft Azure AI directly for further information. For personal identifier you should use account name as we don't supply them your email address.",
+        "AI features use OpenAI (via our servers). We do not send your email address to OpenAI. To request deletion of data held by OpenAI, contact them directly and identify yourself by your account name.",
       emailLabel: "Email Address",
       passwordLabel: "Confirm Password",
       confirmLabel: "I understand that this action cannot be undone.",
@@ -276,14 +312,14 @@ export const translations = {
       logoAlt: "Логотип",
     },
     hero: {
-      introTip: "Звички та нагадування, які справді тримаються",
+      introTip: "Цілі, звички, завдання та нагадування, які тримаються",
       titleLine1: "Виправ відстаючі сфери життя",
       titleAccent: "разом із Principles",
       paragraph:
-        "Principles допомагає дотримуватись звичок і привчатись до нових: маленькі щоденні кроки, зрозумілі ритуали й своєчасні нагадування — щоб не покладатись лише на мотивацію.",
+        "Principles допомагає перетворювати цілі на щоденне виконання: звички під кожну мету, список Tasks на сьогодні, нагадування що не зникають, і AI Helper, який знає твою місію та слоган — щоб не покладатись лише на мотивацію.",
       getStarted: "Почати",
       learnMore: "Дізнатися більше",
-      videoTip: "Подивись короткий огляд: як працюють звички та нагадування — на нашому YouTube-каналі",
+      videoTip: "Подивись короткий огляд: як працюють цілі, звички та нагадування — на нашому YouTube-каналі",
       iframeTitle: "Вступ до Principles",
       playVideo: "Відтворити відео",
     },
@@ -301,10 +337,18 @@ export const translations = {
             "більшість інших додатків фіксують лише звички, а не звʼязок між звичкою та результатом.",
         },
         {
+          emoji: "✅",
+          title: "Tasks на сьогодні",
+          description:
+            "Один список для сьогоднішніх звичок і разових задач, з чеклістами та нагадуваннями — щоб важливе на день залишалось видимим без стрибків між екранами.",
+          unique:
+            "звички й разові справи живуть в одному щоденному потоці.",
+        },
+        {
           emoji: "🤖",
           title: "Персоналізація через ШІ",
           description:
-            "Асистент на основі GPT знає твою місію, девіз, стать і цілі, щоб рекомендувати саме ті звички, які допоможуть вирішити твої реальні проблеми.",
+            "ШІ може рекомендувати звички для мети та пропонувати текст слогана чи місії. Місія та слоган у профілі спрямовують рекомендації на те, що тобі справді важливе.",
           unique:
             "інші застосунки просто дають списки шаблонних звичок. Принципи — єдиний, хто адаптує рекомендації під тебе особисто.",
         },
@@ -312,8 +356,14 @@ export const translations = {
           emoji: "🧩",
           title: "Принцип системності",
           description:
-            "Додаток допомагає будувати не окремі звички, а цілісну систему розвитку. Усе обʼєднано в логіку: Мета → Звички → Результати.",
+            "Додаток допомагає будувати не окремі звички, а цілісну систему розвитку. Усе обʼєднано в логіку: Мета → Звички → Tasks → Результати.",
           unique: "користувач бачить, як дрібні дії формують великі зміни у житті.",
+        },
+        {
+          emoji: "📱",
+          title: "Віджети на головному екрані",
+          description:
+            "Віджети на місяць, тиждень і сьогодні показують заплановані задачі та звички на день — без потреби відкривати застосунок.",
         },
         {
           emoji: "🌱",
@@ -328,25 +378,47 @@ export const translations = {
             "Принципи створено українською командою, яка поєднала глибину філософії розвитку з сучасними технологіями. Це продукт про свідомість, силу волі та внутрішній порядок.",
         },
         {
-          emoji: "💭",
-          title: "Саморефлексія та усвідомленість",
-          description:
-            "Кожна звичка містить запитання для саморефлексії, яке допомагає зрозуміти внутрішні причини опору та підтримувати ментальну ясність.",
-        },
-        {
           emoji: "📈",
           title: "Розвиток через прогрес, а не перфекціонізм",
           description:
-            "Алгоритм прогресу враховує складність звички та частоту, формуючи реалістичний шлях без почуття провини за пропуски.",
+            "У деталях звички видно прогрес, серії та стабільність. Алгоритм ураховує складність і частоту — реалістичний шлях без провини за пропуски.",
           unique:
             "більшість додатків демотивують користувача, коли він щось пропускає. Принципи навпаки підтримують і допомагають відновитися.",
         },
         {
           emoji: "💬",
-          title: "Асистент саморозвитку",
+          title: "AI Helper для підтримки",
           description:
-            "У вбудованому чаті користувач може ставити будь-які питання про себе, цілі, мотивацію — і отримувати інтелектуальні поради від ШІ, який уже знає його звички, місію та пріоритети.",
+            "У вбудованому чаті можна питати про цілі, звички, задачі й пріоритети — і отримувати поради від ШІ, який уже знає місію, слоган і те, що ти відстежуєш. Рекомендації звичок лишаються там, де ти ставиш цілі; Helper — для підтримки.",
           unique: "це не просто бот — це ментор, який розуміє контекст твого життя.",
+        },
+        {
+          emoji: "🔔",
+          title: "Нагадування, що тримаються",
+          description:
+            "Плануй нагадування для звичок і задач — зокрема постійні, які повторюються, доки не виконаєш або не пропустиш, плюс щоденний check-in прогресу, що відкриває Tasks на сьогодні.",
+          unique:
+            "нагадування — не одноразовий пінг; вони лишаються з тобою, доки дія не зроблена.",
+        },
+        {
+          emoji: "🔄",
+          title: "Синхронізація між пристроями",
+          description:
+            "Цілі, звички, задачі й чати з ШІ синхронізуються між телефоном, планшетом і Mac. Тихі push будять інші пристрої, тож зміни з’являються без перезапуску застосунку.",
+        },
+        {
+          emoji: "🧭",
+          title: "Місія та слоган",
+          description:
+            "Запиши життєву місію та слоган у Налаштуваннях — за бажанням із підказками ШІ. Вони спрямовують рекомендації звичок, щоб система лишалась узгодженою з тим, ким хочеш стати.",
+          unique:
+            "текст профілю — не прикраса; він керує тим, що застосунок пропонує далі.",
+        },
+        {
+          emoji: "📋",
+          title: "Чеклісти в задачах",
+          description:
+            "Розбий задачу на підзадачі. Виконання останнього відкритого пункту автоматично завершує батьківську задачу — великі разові справи стають зрозумілими наступними кроками.",
         },
       ],
     },
@@ -443,29 +515,29 @@ export const translations = {
     },
     steps: {
       title: "Як це працює?",
-      subtitle: "Обери звичку, повторюй щодня, підсумуй тиждень",
+      subtitle: "Мета → звички → щоденні задачі → огляд",
       items: [
         {
-          title: "Обери звичку",
-          text: "Обери одну звичку, яку хочеш тримати, або нову, яку хочеш виростити.",
+          title: "Постав ціль",
+          text: "Визнач, що хочеш покращити — за бажанням з нотатками.",
         },
         {
-          title: "Дій щодня",
-          text: "Отримуй невеликий щоденний крок і нагадування, щоб не забувати.",
+          title: "Додай звички",
+          text: "Додай звички, що автоматизують прогрес, або згенеруй їх зі ШІ.",
         },
         {
-          title: "Підсумуй тиждень",
-          text: "Підсумуй тиждень, підлаштуй складність і додай наступну звичку.",
+          title: "Працюй сьогодні",
+          text: "У Tasks — разові справи й сьогоднішні звички; нагадування тримають у фокусі.",
         },
         {
-          title: "Зроби автоматичним",
-          text: "Повторюй, поки рутина не стане природною і автоматичною.",
+          title: "Огляд і ШІ",
+          text: "Перевір серії та прогрес; звернись до AI Helper, коли потрібна підтримка.",
         },
       ],
     },
     reviews: {
       title: "Відгуки клієнтів",
-      subtitle: "Що кажуть ті, хто вже користується застосунком про звички та нагадування",
+      subtitle: "Що кажуть ті, хто вже користується застосунком про цілі, звички та виконання",
       items: [
         {
           name: "Катерина Л.",
@@ -490,7 +562,7 @@ export const translations = {
       titleLead: "PRINCIPLES",
       titleRest: "твій шлях виправити свої відстаючі сфери життя",
       paragraph:
-        "Почни сьогодні з однієї звички й одного нагадування. Малі повтори перемагають великі плани — саме для цього створений Principles.",
+        "Почни з однієї цілі, однієї звички й сьогоднішніх Tasks. Малі повтори перемагають великі плани — саме для цього створений Principles.",
       joinUs: "Приєднатися",
       miniLogoAlt: "Логотип",
     },
@@ -498,9 +570,9 @@ export const translations = {
       title: "Видалення акаунта",
       importantLabel: "Важливо:",
       importantText:
-        "Після видалення акаунта всі пов’язані дані буде назавжди вилучено без можливості відновлення. Проте певні анонімні журнали помилок, пов’язані з роботою застосунку, можуть зберігатися на сервері для покращення продуктивності. Якщо ви реєструвалися через Google або Apple і не змінювали пароль окремо, видалити акаунт можна лише в мобільному застосунку: завантажте застосунок → увійдіть в акаунт → вкладка «Профіль» → іконка у правому верхньому куті → «Видалити акаунт» → «Так».",
+        "Після видалення акаунта всі пов’язані дані буде назавжди вилучено без можливості відновлення. Проте певні анонімні журнали помилок, пов’язані з роботою застосунку, можуть зберігатися на сервері для покращення продуктивності. Якщо ви реєструвалися через Google або Apple і ніколи не встановлювали пароль, видаліть акаунт лише в мобільному застосунку: відкрийте застосунок → увійдіть → Налаштування → Видалити акаунт → підтвердіть. Видалення на сайті працює лише для акаунтів з email і паролем.",
       aiNotice:
-        "У застосунку використовуються OpenAI та Microsoft Azure AI. Щоб видалити свої дані з їхніх серверів, зверніться безпосередньо до OpenAI та Microsoft Azure AI. Як ідентифікатор особи вкажіть ім’я акаунта — ми не передаємо їм вашу електронну адресу.",
+        "Функції ШІ використовують OpenAI (через наші сервери). Ми не передаємо OpenAI вашу електронну адресу. Щоб запросити видалення даних у OpenAI, зверніться безпосередньо до них і вкажіть ім’я акаунта.",
       emailLabel: "Електронна пошта",
       passwordLabel: "Підтвердіть пароль",
       confirmLabel: "Я розумію, що цю дію неможливо скасувати.",
