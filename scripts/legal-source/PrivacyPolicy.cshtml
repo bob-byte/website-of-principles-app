@@ -19,13 +19,13 @@
         </nav>
         <div class="content" id="privacyPolicyOfPrinciples">
             <h1>Privacy Policy of Principles</h1>
-        <b>Last updated December 31, 2024</b>
+        <b>Last updated October 2, 2026</b>
         
         <p>
             This Privacy Notice from Bohdan Bats ("<b>I</b>", "<b>me</b>", "<b>my</b>"), describes how and why I might access, collect, store, use, and/or share ("process") your personal information when you use my services ("Services"), including when you:
             <ul>
                 <li>Download and use my mobile application (Principles: Habits for Goals), or any other application of ours that links to this Privacy Notice</li>
-                <li>Use Principles. A personalized app that aims to help users improve areas of their lives, achieve their mission and goals through habits, motivating reminders, and personalized artificial intelligence.</li>
+                <li>Use Principles. A personalized app that aims to help users improve areas of their lives, achieve their mission and goals through habits, tasks, motivating reminders, home-screen widgets, and personalized artificial intelligence.</li>
                 <li>Engage with me in other related ways, including any sales, marketing, or events</li>
             </ul>
             <b>Questions or concerns?</b> Reading this Privacy Notice will help you understand your privacy rights and choices. I am responsible for making decisions about how your personal information is processed. If you do not agree with my policies and practices, please do not use my Services. If you still have any questions or concerns, please contact me at batsbohdan@gmail.com.
@@ -104,7 +104,12 @@
                     <li>email addresses</li>
                     <li>passwords</li>
                     <li>gender</li>
-                    <li>habits</li>
+                    <li>goals (including optional notes)</li>
+                    <li>habits and habit progress / completion records</li>
+                    <li>tasks and task checklists (subtasks)</li>
+                    <li>reminder preferences and schedules</li>
+                    <li>AI Helper conversations and messages</li>
+                    <li>push notification device tokens (when you enable sync wakeups)</li>
                 </ul>
             </p>
 
@@ -112,16 +117,18 @@
                 <div id="sensitiveInformationWeProcess" class="anchor-offset"></div>
                 <b>Sensitive Information.</b> When necessary, with your consent or as otherwise permitted by applicable law, I process the following categories of sensitive information:
                 <ul>
-                    <li>goals</li>
-                    <li>habits</li>
+                    <li>goals (including optional notes)</li>
+                    <li>habits and related progress</li>
+                    <li>tasks and checklists</li>
                     <li>life mission</li>
                     <li>main life slogan</li>
                     <li>gender</li>
+                    <li>AI Helper chat content you choose to send</li>
                 </ul>
             </p>
 
             <p>
-                <b>Social Media Login Data.</b> I may provide you with the option to register with me using your existing social media account details, like your Facebook, X, or other social media account. If you choose to register in this way, I will collect certain profile information about you from the social media provider, as described in the section called "<a href="#howDoWeHandleSocialLogins">HOW DO I HANDLE YOUR SOCIAL LOGINS?</a>" below.
+                <b>Social Media Login Data.</b> I may provide you with the option to register or log in using Google Sign-In or Sign in with Apple. If you choose to register in this way, I will collect certain profile information about you from the provider, as described in the section called "<a href="#howDoWeHandleSocialLogins">HOW DO I HANDLE YOUR SOCIAL LOGINS?</a>" below. Email/password signup may also verify email ownership with a one-time code before the account is created.
             </p>
 
             <p>
@@ -129,8 +136,9 @@
             </p>
 
             <ul>
-                <li><i>Mobile Device Access.</i> I may request access or permission to certain features from your mobile device, including your mobile device's reminders, social media accounts, vibrator, and other features. If you wish to change my access or permissions, you may do so in your device's settings.</li>
-                <li><i>Mobile Device Data.</i> I automatically collect device information (such as your mobile device ID, model, and manufacturer), operating system, version information and system configuration information, device and application identification numbers, browser type and version, hardware model Internet service provider and/or mobile carrier. If you are using my application(s), I may also collect information about the phone network associated with your mobile device, your mobile device’s operating system or platform, the type of mobile device you use, your mobile device’s unique device ID, and information about the features of my application(s) you accessed.</li>
+                <li><i>Mobile Device Access.</i> I may request access or permission for local notifications / reminders, and (where you enable them) home-screen widgets that show tasks and habits due that day. Auth tokens are stored in the device secure storage / Keychain. If you wish to change my access or permissions, you may do so in your device's settings.</li>
+                <li><i>Mobile Device Data.</i> I automatically collect device information needed to run and sync the app (such as your device model and manufacturer), operating system and version, application version, and a device identifier used for optional silent sync push (Firebase Cloud Messaging). This is for security, sync, and troubleshooting — not for advertising profiling on the current Flutter app.</li>
+                <li><i>Advertising and tracking.</i> The current Flutter app (including iOS) does not show ads and does not use App Tracking Transparency or advertising identifiers for tracking. An older MAUI client build, where still available in stores, may show interstitial ads via Google AdMob and may use advertising-related identifiers on that client only.</li>
             </ul>
 
             <p>
@@ -204,7 +212,11 @@
                 <ul>
                     <li>
                         <b>AI Service Providers</b>
-                        <p>OpenAI and Microsoft Azure AI</p>
+                        <p>OpenAI (API requests from my servers; I do not send your email address to OpenAI)</p>
+                    </li>
+                    <li>
+                        <b>Push / Device Messaging</b>
+                        <p>Firebase Cloud Messaging (Google) — optional silent sync wakeups using device tokens</p>
                     </li>
                     <li>
                         <b>Cloud Computing Services</b>
@@ -213,6 +225,10 @@
                     <li>
                         <b>User Account Registration and Authentication</b>
                         <p>Google OAuth 2.0 and Sign in with Apple</p>
+                    </li>
+                    <li>
+                        <b>Advertising (older MAUI client only, where still published)</b>
+                        <p>Google AdMob</p>
                     </li>
                     <li>
                         <b>Website Hosting</b>
@@ -238,24 +254,28 @@
             <p><i><b>In Short:</b> I offer products, features, or tools powered by artificial intelligence, machine learning, or similar technologies.</i></p>
             <p>As part of my Services, I offer products, features, or tools powered by artificial intelligence, machine learning, or similar technologies (collectively, "AI Products"). These tools are designed to enhance your experience and provide you with innovative solutions. The terms in this Privacy Notice govern your use of the AI Products within my Services.</p>
             <p><b>Use of AI Technologies</b></p>
-            <p>I provide the AI Products through third-party service providers ("AI Service Providers"), including OpenAI and Microsoft Azure AI. As outlined in this Privacy Notice, your input, output, and personal information will be shared with and processed by these AI Service Providers to enable your use of my AI Products for purposes outlined in "<a href="#whatLegalBasesDoWeRelyOn">WHAT LEGAL BASES DO I RELY ON TO PROCESS YOUR PERSONAL INFORMATION?</a>" You must not use the AI Products in any way that violates the terms or policies of any AI Service Provider.</p>
+            <p>I provide the AI Products through a third-party service provider ("AI Service Provider"), OpenAI. Requests are sent from my servers using a server-held API key. As outlined in this Privacy Notice, your input, output, and related personal information may be shared with and processed by OpenAI to enable your use of my AI Products for purposes outlined in "<a href="#whatLegalBasesDoWeRelyOn">WHAT LEGAL BASES DO I RELY ON TO PROCESS YOUR PERSONAL INFORMATION?</a>" You must not use the AI Products in any way that violates the terms or policies of any AI Service Provider.</p>
             <p><b>My AI Products</b></p>
             <p>
                 My AI Products are designed for the following functions:
                 <ul>
-                    <li>Natural language processing</li>
-                    <li>Recommendation of habits</li>
+                    <li>AI Helper chat (supportive conversation about your goals, habits, tasks, mission, and slogan)</li>
+                    <li>Recommendation of habits for a goal</li>
+                    <li>Suggestion of goals</li>
+                    <li>Suggestion of profile slogan and mission text</li>
+                    <li>Task parsing / assist</li>
+                    <li>Conversation title generation</li>
                 </ul>
             </p>
             <p><b>How I Process Your Data Using AI</b></p>
             <p>
-                All personal information processed using my AI Products is handled in line with my Privacy Notice and my agreement with third parties. This ensures high security and safeguards your personal information throughout the process, giving you peace of mind about your data's safety.
+                Inputs sent for AI features may include capped habit, goal, and task names, your mission and slogan, gender, and the chat or suggestion text you submit. Processing runs on my servers before calls to OpenAI. All personal information processed using my AI Products is handled in line with my Privacy Notice and my agreement with third parties.
             </p>
         </div>
         <div>
             <h2 id="howDoWeHandleSocialLogins">6. HOW DO I HANDLE YOUR SOCIAL LOGINS?</h2>
-            <p><i><b>In Short:</b> If you choose to register or log in to my Services using a social media account, I may have access to certain information about you.</i></p>
-            <p>My Services offer you the ability to register and log in using your third-party social media account details (like your Facebook or X logins). Where you choose to do this, I will receive certain profile information about you from your social media provider. The profile information I receive may vary depending on the social media provider concerned, but will often include your name, email address, friends list, and profile picture, as well as other information you choose to make public on such a social media platform.</p>
+            <p><i><b>In Short:</b> If you choose to register or log in to my Services using Google or Apple, I may have access to certain information about you.</i></p>
+            <p>My Services offer you the ability to register and log in using Google Sign-In or Sign in with Apple. Where you choose to do this, I will receive certain profile information from the provider — typically your name and email address (and, where provided, a profile picture). I do not request access to your friends list or other social graph data.</p>
             <p>I will use the information I receive only for the purposes that are described in this Privacy Notice or that are otherwise made clear to you on the relevant Services. Please note that I do not control, and are not responsible for, other uses of your personal information by your third-party social media provider. I recommend that you review their privacy notice to understand how they collect, use, and share your personal information, and how you can set your privacy preferences on their sites and apps.</p>
         </div>
         <div>
@@ -419,7 +439,7 @@
                         <b>
                             AI Service 
                         </b>
-                        <p>OpenAI and Microsoft Azure AI</p>
+                        <p>OpenAI</p>
                     </li>
                 </ul>
             </p>
@@ -470,8 +490,8 @@
                     </li>
                     <li>
                         Via the mobile app – to delete an account through the mobile application, a user must open the
-                        <a asp-controller="Settings" asp-action="Settings">Settings</a> section, tap on the "Delete Account" option,
-                        and follow the provided instructions to complete the process.
+                        <a asp-controller="Settings" asp-action="Settings">Settings</a> tab, tap "Delete Account",
+                        and follow the provided instructions. Accounts created only with Google or Apple (no password) must use the in-app deletion flow; the website deletion form requires an email/password account.
                     </li>
                 </ul>
             </p>
