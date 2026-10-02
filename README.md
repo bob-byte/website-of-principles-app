@@ -1,10 +1,10 @@
-﻿# Principles — marketing site (new_web)
+﻿# Principles — marketing site
 
-Static marketing website and account settings for the **Principles** mobile app. Built with **React** and **Vite**. Replaces the legacy ASP.NET site (folder `web/` removed after migration).
+Static marketing website and account settings for the **Principles** mobile app. Built with **React** and **Vite**.
 
 Production: https://principles.top
 
-**Повна документація (UK):** [docs/SITE.md](docs/SITE.md)
+**Full documentation (UK):** [docs/SITE.md](docs/SITE.md)
 
 ## Quick start
 
@@ -45,7 +45,7 @@ yarn build
 
 ## i18n and themes
 
-`LocaleProvider` + `translations.js`. Themes: dark-orange, dark-blue, light-orange, light-blue (CSS variables, localStorage).
+`LocaleProvider` + `translations.js`. Themes: dark-orange, dark-blue, light-orange, light-blue (CSS variables, localStorage). Default when unset: orange accent, dark/light from `prefers-color-scheme`. Flutter opens site links with `?theme=` (e.g. `dark-orange`) to sync.
 
 ## Legal pages
 
@@ -63,11 +63,12 @@ yarn build
 4. User enters code in modal
 5. `DELETE /api/account`
 
-Keys in `.env.local` must match production (`front/Principles/appsettings.json`). Use quoted values if keys contain `#` or `%`.
+Keys in `.env.local` must match the backend encryption keys (`SET.WebAPI` / server env). Use quoted values if keys contain `#` or `%`.
 
 Dev: Vite proxies `/api` to `VITE_API_PROXY_TARGET`.
 
 ## Related repos
 
-- `back/SET.WebAPI` — API
-- `front/Principles` — mobile app
+- [flutter-frontend-of-principles](https://github.com/bob-byte/flutter-frontend-of-principles) — primary Flutter client
+- Nested `backend/` (or separate WebAPI clone) — `SET.WebAPI` REST API
+- [maui](https://github.com/bob-byte/maui) — older .NET MAUI client (still shipping in stores)

@@ -68,7 +68,7 @@ GetStarted.jsx
 | `locale/LocaleProvider.jsx` | контекст: мова + тема |
 | `locale/translations.js` | тексти EN і UK |
 
-**Теми:** `dark-orange`, `dark-blue`, `light-orange`, `light-blue` — зберігаються в `localStorage`, стилі через змінні в `App.css`.
+**Теми:** `dark-orange`, `dark-blue`, `light-orange`, `light-blue` — зберігаються в `localStorage`, стилі через змінні в `App.css`. За замовчуванням — помаранчева (dark/light з `prefers-color-scheme`). Мобільний застосунок відкриває сайт з `?theme=…`, і цей параметр має пріоритет над збереженою темою.
 
 ---
 
@@ -141,8 +141,8 @@ sequenceDiagram
 | `SECOND_KEY_OF_PASSWORD_ENCRYPTION` | IV (16 байт) |
 | `VITE_SITE_URL` | URL сайту для SEO |
 
-**Production:** ключі з `front/Principles/appsettings.json`.  
-**Локальний back:** ключі з `back/SET.WebAPI/appsettings.Development.json`.
+**Production:** ключі з бекенду (`SET.WebAPI` / env сервера; ті самі AES-значення, що в мобільних клієнтах).  
+**Локальний back:** ключі з локального `.env` / Development-конфігу `SET.WebAPI`.
 
 Якщо в ключі є `#`, `%`, `&` — обовʼязково в **лапках** в `.env`.
 
@@ -198,8 +198,11 @@ docker run -p 8080:80 \
 
 | Репозиторій | Роль |
 |-------------|------|
-| `back/SET.WebAPI` | REST API, БД, пошта з кодами |
-| `front/Principles` | мобільний застосунок |
+| `flutter-frontend-of-principles` | основний Flutter-клієнт |
+| `flutter-frontend-of-principles/backend` (`SET.WebAPI`) | REST API, БД, пошта з кодами, ШІ |
+| `maui` | старіший .NET MAUI клієнт (ще в магазинах) |
+
+Ключі шифрування пароля для видалення акаунта — з бекенду (`SET.WebAPI` / env сервера), не з мобільного `appsettings.json`.
 
 ---
 
