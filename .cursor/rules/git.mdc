@@ -1,0 +1,9 @@
+---
+description: Git rules for this repo
+alwaysApply: true
+---
+
+# Git
+
+- Host is **GitHub only** (`origin`). Do not fetch, push, or set defaults on Bitbucket or other remotes.
+- **Never commit** (or amend, stash-and-drop, or push) unless the user explicitly asks in the current request. Leave finished work uncommitted and say it is ready to commit.
