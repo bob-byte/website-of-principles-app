@@ -14,13 +14,16 @@ COPY . .
 RUN yarn build
 
 # Serve dist/ on HTTP port 80 (EasyPanel terminates HTTPS at the proxy).
+# Node is only used for the tiny /site-log sink that prints to container stdout.
 FROM nginx:alpine
 
-RUN apk add --no-cache jq
+RUN apk add --no-cache jq nodejs
 
 COPY nginx.conf /etc/nginx/conf.d/default.conf
+COPY docker/site-log-server.mjs /opt/principles-site-log-server.mjs
+COPY docker/40-start-site-log.sh /docker-entrypoint.d/40-start-site-log.sh
 COPY docker/50-runtime-env.sh /docker-entrypoint.d/50-runtime-env.sh
-RUN chmod +x /docker-entrypoint.d/50-runtime-env.sh
+RUN chmod +x /docker-entrypoint.d/40-start-site-log.sh /docker-entrypoint.d/50-runtime-env.sh
 
 COPY --from=build /app/dist /usr/share/nginx/html
 

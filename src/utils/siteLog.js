@@ -1,17 +1,8 @@
-import { env } from "../config/runtimeEnv";
-
 /** IANA id for Kyiv — same role as backend `TimeZoneInfo.FindSystemTimeZoneById`. */
 const KYIV_TIME_ZONE_ID = "Europe/Kyiv";
 const OPEN_LOG_SESSION_KEY = "principles-site-open-logged";
 const GEO_ENDPOINT = "https://ipwho.is/";
-
-function apiBase() {
-  return env("VITE_API_BASE_URL").replace(/\/$/, "");
-}
-
-function apiUrl(path) {
-  return `${apiBase()}${path}`;
-}
+const SITE_LOG_PATH = "/site-log";
 
 function pad2(value) {
   return String(value).padStart(2, "0");
@@ -102,36 +93,27 @@ async function resolveApproximateLocation() {
   }
 }
 
-async function postToServer(message) {
-  const body = {
-    deviceOs: "Web",
-    deviceModelName: navigator.userAgent || "browser",
-    deviceType: "Browser",
-    deviceManufacturer: "Web",
-    appVersion: "website",
-    logType: "Information",
-    logMessage: message,
-  };
-
+/** POST the already-formatted line so EasyPanel website logs show it. */
+async function postToSiteLog(line) {
   try {
-    await fetch(apiUrl("/api/logs"), {
+    await fetch(SITE_LOG_PATH, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Accept: "application/json",
+        Accept: "text/plain",
       },
-      body: JSON.stringify(body),
+      body: JSON.stringify({ line }),
       keepalive: true,
     });
   } catch {
-    // Local console line is enough when the API is unreachable.
+    // Browser console still has the line when the sink is unreachable.
   }
 }
 
 export async function logSiteInfo(message) {
   const line = formatLogLine(message, "INF");
   console.log(line);
-  await postToServer(message);
+  await postToSiteLog(line);
 }
 
 export async function logWebsiteOpened() {
