@@ -17,8 +17,14 @@ RUN yarn build
 # Node is only used for the tiny /site-log sink that prints to container stdout.
 FROM nginx:alpine
 
-RUN apk add --no-cache jq nodejs
+RUN apk add --no-cache jq nodejs \
+    && ln -sf /dev/null /var/log/nginx/access.log \
+    && ln -sf /dev/null /var/log/nginx/error.log
 
+# Silence /docker-entrypoint.sh "Configuration complete" chatter.
+ENV NGINX_ENTRYPOINT_QUIET_LOGS=1
+
+COPY docker/nginx-main.conf /etc/nginx/nginx.conf
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 COPY docker/site-log-server.mjs /opt/principles-site-log-server.mjs
 COPY docker/40-start-site-log.sh /docker-entrypoint.d/40-start-site-log.sh
