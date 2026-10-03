@@ -139,17 +139,6 @@ function readToken(payload) {
   return payload?.token ?? payload?.Token ?? null;
 }
 
-function readVerificationCode(payload) {
-  const code = payload?.code ?? payload?.Code;
-  const numericCode = Number(code);
-
-  if (!Number.isInteger(numericCode) || numericCode < 100000 || numericCode > 999999) {
-    throw new Error("Invalid verification code received from server.");
-  }
-
-  return numericCode;
-}
-
 function normalizeUserCode(code) {
   const digits = String(code).trim().replace(/\D/g, "");
 
@@ -220,22 +209,30 @@ async function sendVerificationCode(email) {
   if (!response.ok) {
     throw new Error(await parseErrorMessage(response));
   }
-
-  const result = await response.json();
-  return readVerificationCode(result);
 }
 
-async function deleteAccountWithToken(token) {
-  const response = await fetch(apiUrl("/api/account"), {
-    method: "DELETE",
-    headers: {
-      Authorization: `Bearer ${token}`,
-      Accept: "application/json",
+async function deleteAccountWithToken(token, code) {
+  const response = await fetch(
+    `${apiUrl("/api/account")}?code=${encodeURIComponent(code)}`,
+    {
+      method: "DELETE",
+      headers: {
+        Authorization: `Bearer ${token}`,
+        Accept: "application/json",
+      },
     },
-  });
+  );
 
   if (!response.ok) {
-    throw new Error(await parseErrorMessage(response));
+    const message = await parseErrorMessage(response);
+    if (
+      typeof message === "string" &&
+      (message.includes("InvalidVerificationCode") ||
+        message.includes("VerificationCodeExpired"))
+    ) {
+      throw new Error(DELETION_ERRORS.WRONG_CODE);
+    }
+    throw new Error(message);
   }
 
   return "Your account has been successfully deleted.";
@@ -281,17 +278,14 @@ async function startDeletionViaDevProxy(email, password) {
     throw new Error(DELETION_ERRORS.INVALID_CREDENTIALS);
   }
 
-  return {
-    token,
-    verificationCode: readVerificationCode(result),
-  };
+  return { token };
 }
 
-async function confirmDeletionViaDevProxy({ token, code, verificationCode }) {
+async function confirmDeletionViaDevProxy({ token, code }) {
   const response = await fetch("/settings/confirm-account-deletion", {
     method: "POST",
     headers: { "Content-Type": "application/json", Accept: "application/json" },
-    body: JSON.stringify({ token, code, verificationCode }),
+    body: JSON.stringify({ token, code }),
   });
 
   const text = await response.text();
@@ -311,32 +305,27 @@ export async function startAccountDeletion({ email, password }) {
       return await startDeletionViaDevProxy(normalizedEmail, password);
     }
 
-    // 1) Email must exist in DB; sends 6-digit code to inbox
-    const verificationCode = await sendVerificationCode(normalizedEmail);
+    // 1) Email must exist in DB; sends 6-digit code to inbox (not returned)
+    await sendVerificationCode(normalizedEmail);
     // 2) Verify password (encrypted like mobile app)
     const token = await authorizeAccount(normalizedEmail, password);
 
-    return { token, verificationCode };
+    return { token };
   } catch (error) {
     wrapNetworkError(error);
   }
 }
 
-/** Step 2: confirm code from email and delete account. */
-export async function confirmAccountDeletion({ token, code, verificationCode }) {
+/** Step 2: confirm code from email and delete account (server validates code). */
+export async function confirmAccountDeletion({ token, code }) {
   const userCodeDigits = normalizeUserCode(code);
-
-  if (userCodeDigits !== String(verificationCode).padStart(6, "0")) {
-    throw new Error(DELETION_ERRORS.WRONG_CODE);
-  }
 
   if (shouldUseDevProxy()) {
     return confirmDeletionViaDevProxy({
       token,
       code: Number(userCodeDigits),
-      verificationCode,
     });
   }
 
-  return deleteAccountWithToken(token);
+  return deleteAccountWithToken(token, userCodeDigits);
 }

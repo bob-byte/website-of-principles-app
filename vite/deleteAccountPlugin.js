@@ -141,23 +141,13 @@ async function sendVerificationCode(apiTarget, email) {
     },
   );
 
-  const codeResult = await readApiJson(
-    codeResponse,
-    "Invalid API response when sending verification code.",
-  );
-  const verificationCode = Number(codeResult?.code ?? codeResult?.Code);
-
-  if (
-    !Number.isInteger(verificationCode)
-    || verificationCode < 100000
-    || verificationCode > 999999
-  ) {
-    const error = new Error("Invalid verification code received from server.");
-    error.statusCode = 500;
+  if (!codeResponse.ok) {
+    const error = new Error(
+      (await codeResponse.text()) || "Failed to send verification code.",
+    );
+    error.statusCode = codeResponse.status;
     throw error;
   }
-
-  return verificationCode;
 }
 
 async function handleStartAccountDeletion(req, res, env) {
@@ -189,12 +179,12 @@ async function handleStartAccountDeletion(req, res, env) {
 
   try {
     assertEncryptionKeys(firstKey, secondKey);
-    const verificationCode = await sendVerificationCode(apiTarget, email);
+    await sendVerificationCode(apiTarget, email);
     const token = await authorizeAccount(apiTarget, email, password, firstKey, secondKey);
 
     res.statusCode = 200;
     res.setHeader("Content-Type", "application/json; charset=utf-8");
-    res.end(JSON.stringify({ token, verificationCode }));
+    res.end(JSON.stringify({ token }));
   } catch (error) {
     if (error.message && Object.values(API_ERRORS).includes(error.message)) {
       sendJsonError(res, error.statusCode || 400, error.message);
@@ -219,30 +209,35 @@ async function handleConfirmAccountDeletion(req, res, env) {
 
   const token = body?.token;
   const userCodeDigits = String(body?.code ?? "").replace(/\D/g, "");
-  const verificationCodeDigits = String(body?.verificationCode ?? "").replace(/\D/g, "");
 
-  if (!token || !/^\d{6}$/.test(userCodeDigits) || !/^\d{6}$/.test(verificationCodeDigits)) {
+  if (!token || !/^\d{6}$/.test(userCodeDigits)) {
     sendJsonError(res, 400, "INVALID_DATA");
-    return;
-  }
-
-  if (userCodeDigits !== verificationCodeDigits) {
-    sendJsonError(res, 400, "WRONG_CODE");
     return;
   }
 
   const apiTarget = getApiTarget(env);
 
   try {
-    const deleteResponse = await fetch(`${apiTarget}/api/account`, {
-      method: "DELETE",
-      headers: {
-        Authorization: `Bearer ${token}`,
-        Accept: "application/json",
+    const deleteResponse = await fetch(
+      `${apiTarget}/api/account?code=${encodeURIComponent(userCodeDigits)}`,
+      {
+        method: "DELETE",
+        headers: {
+          Authorization: `Bearer ${token}`,
+          Accept: "application/json",
+        },
       },
-    });
+    );
 
     if (!deleteResponse.ok) {
+      const text = await deleteResponse.text();
+      if (
+        text.includes("InvalidVerificationCode") ||
+        text.includes("VerificationCodeExpired")
+      ) {
+        sendJsonError(res, 400, "WRONG_CODE");
+        return;
+      }
       res.statusCode = deleteResponse.status;
       res.end("Failed to delete account. Please try again later.");
       return;

@@ -72,7 +72,6 @@ function DeleteAccountForm() {
       const result = await confirmAccountDeletion({
         token: deletionSession.token,
         code,
-        verificationCode: deletionSession.verificationCode,
       });
       setMessage(result);
       setIsSuccess(true);
