@@ -4,6 +4,10 @@ const OPEN_LOG_SESSION_KEY = "principles-site-open-logged";
 const GEO_ENDPOINT = "https://ipwho.is/";
 const SITE_LOG_PATH = "/site-log";
 
+/** Cached after first geo lookup so button lines can reuse it. */
+let cachedApproximateLocation = null;
+let approximateLocationPromise = null;
+
 function pad2(value) {
   return String(value).padStart(2, "0");
 }
@@ -58,7 +62,7 @@ function readButtonLabel(element) {
   return text || element.tagName.toLowerCase();
 }
 
-async function resolveApproximateLocation() {
+async function lookupApproximateLocation() {
   try {
     const response = await fetch(GEO_ENDPOINT, {
       method: "GET",
@@ -93,6 +97,23 @@ async function resolveApproximateLocation() {
   }
 }
 
+function resolveApproximateLocation() {
+  if (cachedApproximateLocation) {
+    return Promise.resolve(cachedApproximateLocation);
+  }
+  if (!approximateLocationPromise) {
+    approximateLocationPromise = lookupApproximateLocation().then((location) => {
+      cachedApproximateLocation = location;
+      return location;
+    });
+  }
+  return approximateLocationPromise;
+}
+
+function withLocation(action, locationLabel) {
+  return `${action}. Approximate location: ${locationLabel}`;
+}
+
 /** POST the already-formatted line so EasyPanel website logs show it. */
 async function postToSiteLog(line) {
   try {
@@ -124,9 +145,7 @@ export async function logWebsiteOpened() {
 
   const path = window.location.pathname.replace(/\/+$/, "") || "/";
   const locationLabel = await resolveApproximateLocation();
-  await logSiteInfo(
-    `Website opened (${path}). Approximate location: ${locationLabel}`,
-  );
+  await logSiteInfo(withLocation(`Website opened (${path})`, locationLabel));
 }
 
 export async function logButtonPressed(buttonName) {
@@ -134,7 +153,8 @@ export async function logButtonPressed(buttonName) {
   if (!name) {
     return;
   }
-  await logSiteInfo(`Button pressed: ${name}`);
+  const locationLabel = await resolveApproximateLocation();
+  await logSiteInfo(withLocation(`Button pressed: ${name}`, locationLabel));
 }
 
 function onDocumentClick(event) {

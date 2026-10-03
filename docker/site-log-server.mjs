@@ -69,6 +69,4 @@ const server = http.createServer(async (req, res) => {
   }
 });
 
-server.listen(PORT, "127.0.0.1", () => {
-  console.log(`[site-log] listening on 127.0.0.1:${PORT}`);
-});
+server.listen(PORT, "127.0.0.1");
