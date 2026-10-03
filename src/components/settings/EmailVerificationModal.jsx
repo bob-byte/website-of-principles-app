@@ -110,6 +110,7 @@ function EmailVerificationModal({
               className="settings-modal__cancel"
               disabled={isSubmitting}
               onClick={onClose}
+              siteLog={translate("settings.verificationCancel")}
             >
               {translate("settings.verificationCancel")}
             </AppButton>
@@ -118,6 +119,7 @@ function EmailVerificationModal({
               variant="danger"
               className="settings-modal__confirm"
               disabled={isSubmitting || digits.some((digit) => !digit)}
+              siteLog={translate("settings.verificationConfirm")}
             >
               {isSubmitting
                 ? translate("settings.deleting")

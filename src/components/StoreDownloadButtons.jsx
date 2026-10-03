@@ -31,6 +31,7 @@ function StoreDownloadButtons() {
         target="_blank"
         rel="noopener noreferrer"
         className="store-download__btn store-download__btn--android"
+        data-site-log={translate("stores.android")}
       >
         {translate("stores.android")}
       </a>
@@ -39,6 +40,7 @@ function StoreDownloadButtons() {
         target="_blank"
         rel="noopener noreferrer"
         className="store-download__btn store-download__btn--ios"
+        data-site-log={translate("stores.ios")}
       >
         {translate("stores.ios")}
       </a>

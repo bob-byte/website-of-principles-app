@@ -31,6 +31,7 @@ function SettingsPage() {
             target="_blank"
             rel="noopener noreferrer"
             className="settings-page__store-btn settings-page__store-btn--android"
+            data-site-log={translate("settings.android")}
           >
             {translate("settings.android")}
           </a>
@@ -39,6 +40,7 @@ function SettingsPage() {
             target="_blank"
             rel="noopener noreferrer"
             className="settings-page__store-btn settings-page__store-btn--ios"
+            data-site-log={translate("settings.ios")}
           >
             {translate("settings.ios")}
           </a>

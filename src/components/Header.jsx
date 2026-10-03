@@ -46,6 +46,7 @@ function Header(){
                     href={link.href}
                     className={className}
                     aria-current={isActive ? "page" : undefined}
+                    data-site-log={translate(link.key)}
                 >
                     {translate(link.key)}
                 </LegalPageLink>
@@ -53,7 +54,12 @@ function Header(){
         }
 
         return (
-            <a href={link.href} className={className} aria-current={isActive ? "page" : undefined}>
+            <a
+                href={link.href}
+                className={className}
+                aria-current={isActive ? "page" : undefined}
+                data-site-log={translate(link.key)}
+            >
                 {translate(link.key)}
             </a>
         );
@@ -62,7 +68,7 @@ function Header(){
     return(
         <>
             <header>
-                <a className="logo__btn" href="/">
+                <a className="logo__btn" href="/" data-site-log={translate("header.home")}>
                     <img src={logo} alt={translate("header.logoAlt")} />
                     <span className="logo__btn-text">{translate("header.home")}</span>
                 </a>
@@ -116,7 +122,11 @@ function Header(){
                         <option value="en">EN</option>
                         <option value="uk">УКР</option>
                     </select>
-                    <AppButton variant="primary" onClick={openAppStore}>
+                    <AppButton
+                        variant="primary"
+                        onClick={openAppStore}
+                        siteLog={translate("header.getStarted")}
+                    >
                         {translate("header.getStarted")}
                     </AppButton>
                 </div>

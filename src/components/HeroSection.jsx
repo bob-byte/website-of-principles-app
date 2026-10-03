@@ -28,13 +28,18 @@ function HeroSection() {
             </p>
 
             <div className="main__btns">
-                <AppButton variant="primary" onClick={openAppStore}>
+                <AppButton
+                    variant="primary"
+                    onClick={openAppStore}
+                    siteLog={translate("hero.getStarted")}
+                >
                     {translate("hero.getStarted")}
                 </AppButton>
                 <button
                     type="button"
                     className="translucent__btn hero__learn-more"
                     onClick={scrollToBenefitsSection}
+                    data-site-log={translate("hero.learnMore")}
                 >
                     {translate("hero.learnMore")}
                 </button>

@@ -141,6 +141,7 @@ function DeleteAccountForm() {
           variant="danger"
           className="settings-page__submit"
           disabled={isSubmitting || isSuccess}
+          siteLog={translate("settings.deleteButton")}
         >
           {isSubmitting ? translate("settings.sendingCode") : translate("settings.deleteButton")}
         </AppButton>

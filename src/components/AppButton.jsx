@@ -5,6 +5,8 @@ function AppButton({
     className = "",
     disabled = false,
     onClick,
+    siteLog,
+    ...rest
 }) {
     const variantClass =
         variant === "ghost"
@@ -19,6 +21,8 @@ function AppButton({
             className={`${variantClass} ${className}`.trim()}
             disabled={disabled}
             onClick={onClick}
+            {...rest}
+            data-site-log={siteLog}
         >
             {children}
         </button>
